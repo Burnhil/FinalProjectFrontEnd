@@ -1,9 +1,40 @@
+/*https://coolors.co/e0fbfc-c2dfe3-9db4c0-5c6b73-253237*/
+
+
 .App {
   text-align: center;
+  background-color: #C2DFE3;
+}
+
+.logo {
+  align-self: left;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .toolBar {
   font-size: large;
   font-weight: 600;
   color: white;
+  background-color: #5c6b73;
+  
+}
+
+.loginForm {
+  margin: auto;
+  padding: 15px;
+  font-size: large;
+  border-style: double;
+  border-width: 4px;
+}
+
+.missionStatement {
+  padding: 4%;
+  margin-top: 4%;
+  background-color: black;
+}
+
+.pictures {
+  margin-top: 50px;
+  width: 100%;
 }
