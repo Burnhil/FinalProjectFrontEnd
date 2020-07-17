@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
-//set switch for providerinfo and serviceinfo
-const providerInfo = (state = null, action) => {
+//set switch for providerinfo 
+const providerInfo = (state = [], action) => {
     switch(action.type) {
         case "SET_PROVIDERINFO":
             return action.value;
+        case "UNSET_PROVIDERINFO":
+            return null;
     }
     return state;
 }

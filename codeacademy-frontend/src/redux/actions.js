@@ -10,7 +10,7 @@ export const setProviderInfo = () => {
             
                     const action = {
                         type: "SET_PROVIDERINFO",
-                        value: theData.Results,
+                        value: theData.providerInfo,
 
                     }
                     dispatch(action);

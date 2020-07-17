@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { setProviderInfo } from '../redux/actions';
 
+
 class Provider extends Component {
 
     constructor(props) {
@@ -88,36 +89,36 @@ class Provider extends Component {
 
     render() {
 
-        setProviderInfo();
-        console.log(this.props.ProviderInfo);
+        this.props.setProviderInfo();
+        console.log(this.props.providerInfo);
 
         //combine the providerinfo and serviceoffered 
-        for(let k = 0; k<this.state.ProviderInfo.length; k++) {
-            console.log(this.state.ProviderInfo)
-            for(let i = 0; i<this.state.ServiceInfo.length; i++){
-                // console.log("we are here");
-                 console.log(this.state.ServiceInfo[i]);
-                 if(this.state.ProviderInfo[k].TheServicesOfferedId[0] === this.state.ServiceInfo[i]._id){
-                    console.log("we have a match yeah")
-                    console.log(`this is the provider = ${this.state.ProviderInfo[k].TheServicesOfferedId[0]} this is the serviceoffered = ${this.state.ServiceInfo[i]._id}`)
+        // for(let k = 0; k<this.state.providerInfo.length; k++) {
+        //     console.log(this.state.ProviderInfo)
+        //     for(let i = 0; i<this.state.ServiceInfo.length; i++){
+        //         // console.log("we are here");
+        //          console.log(this.state.ServiceInfo[i]);
+        //          if(this.state.ProviderInfo[k].TheServicesOfferedId[0] === this.state.ServiceInfo[i]._id){
+        //             console.log("we have a match yeah")
+        //             console.log(`this is the provider = ${this.state.ProviderInfo[k].TheServicesOfferedId[0]} this is the serviceoffered = ${this.state.ServiceInfo[i]._id}`)
                  
-                    this.state.CombinedInfo[k] = {
-                        OrganizationName: this.state.ProviderInfo[k].OrganizationName,
-                        AvaliableBeds: this.state.ServiceInfo[i].AvaliableBeds,
-                    }
-                }
-            }
-        }
+        //             this.state.CombinedInfo[k] = {
+        //                 OrganizationName: this.state.ProviderInfo[k].OrganizationName,
+        //                 AvaliableBeds: this.state.ServiceInfo[i].AvaliableBeds,
+        //             }
+        //         }
+        //     }
+        // }
         
         //create the data to be displayed
-        if (this.state.CombinedInfo !== null) {
-            let displayProviders = [];
-            console.log(`combined array = ${this.state.CombinedInfo.length}`)
-            for (let i = 0; i < this.state.CombinedInfo.length; i++) {    
-                console.log("inside provider info"); 
-                displayProviders.push(<li>Organization: {this.state.CombinedInfo[i].OrganizationName} 
-                                    Avaliable Beds: {this.state.CombinedInfo[i].AvaliableBeds}</li>);
-            }
+        // if (this.state.CombinedInfo !== null) {
+          let displayProviders = [];
+        //     console.log(`combined array = ${this.state.CombinedInfo.length}`)
+        //     for (let i = 0; i < this.state.CombinedInfo.length; i++) {    
+        //         console.log("inside provider info"); 
+        //         displayProviders.push(<li>Organization: {this.state.CombinedInfo[i].OrganizationName} 
+        //                             Avaliable Beds: {this.state.CombinedInfo[i].AvaliableBeds}</li>);
+        //     }
             
             return (
                 <div>
@@ -125,7 +126,7 @@ class Provider extends Component {
                     <ul> {displayProviders}</ul>
                 </div>
             )
-        }
+        //}
     }
 
 }
