@@ -88,7 +88,7 @@ class Provider extends Component {
 
     render() {
 
-        this.props.setProviderInfo();
+        setProviderInfo();
         console.log(this.props.ProviderInfo);
 
         //combine the providerinfo and serviceoffered 
