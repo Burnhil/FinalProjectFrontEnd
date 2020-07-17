@@ -1,5 +1,5 @@
 import React from 'react';
-import Provider from './Provider.js'
+import Provider from '../containers/Provider.js';
 import Map from './Map.js'
 
 const AboutUs = (props) => {

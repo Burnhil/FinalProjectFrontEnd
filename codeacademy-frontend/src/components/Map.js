@@ -4,9 +4,6 @@ import React from 'react';
 import{ GoogleMap, withGoogleMap, withScriptjs, Marker, InfoWindow } from 'react-google-maps';
 
 
-
-
-
 const theMap = () => {
 
     let testData = {
@@ -20,8 +17,12 @@ const theMap = () => {
         defaultCenter={{lat:35.207008, lng: -101.832008}}>
 
         <Marker key={testData.house} position={{lat: testData.homelat, lng: testData.homelng}} 
+        
+
+        
 
         />
+        
         </GoogleMap>
     )
 }
