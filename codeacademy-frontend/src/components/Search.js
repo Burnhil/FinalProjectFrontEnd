@@ -1,14 +1,28 @@
 import React from 'react';
+import { AppBar, Toolbar, IconButton, Typography, Button, Grid, CardMedia, Paper, Container } from '@material-ui/core';
 import Provider from '../containers/Provider.js';
 import Map from './Map.js'
 
-const AboutUs = (props) => {
-    return <div>
-        <h2>This is the search page
-        </h2>
-        <Provider />
-        <Map />
-    </div> 
+const Search = (props) => {
+    return <div className="search">
+        <Grid
+            container
+            direction="row"
+            justify="left"
+            spacing="2"
+        >
+            <Grid item item xs={5}>
+                <Paper xs={4}>
+                    <Provider />
+                </Paper>
+            </Grid>
+            <Grid item item xs={5}>
+                <Paper xs={4}>
+                    <Map />
+                </Paper>
+            </Grid>
+        </Grid>
+    </div>
 }
 
-export default AboutUs;
+export default Search;

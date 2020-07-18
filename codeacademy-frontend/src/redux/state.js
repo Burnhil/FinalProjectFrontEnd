@@ -2,7 +2,9 @@
 
 export default {
    
+    token: null,
     providerInfo: [],
-    
+    serviceInfo: [],
+    providerServiceInfo: [],
 
 }

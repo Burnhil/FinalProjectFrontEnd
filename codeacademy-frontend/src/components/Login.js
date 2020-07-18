@@ -1,11 +1,17 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Button, Grid, CardMedia, GridList } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+
 
 const Login = (props) => {
-    return <form onSubmit={props.handleLogin} className="loginForm">
+    if(props.token != null){
+        console.log(props.token)
+
+    }
+
+    return <form onSubmit={(e) => props.setToken(e)} className="loginForm">
         <span>User Login</span>
         <Grid container direction='column'>
-        <Grid item><input type="text" placeholder="username" name="username" required /></Grid>
+        <Grid item><input type="text" placeholder="userid" name="userid" required /></Grid>
         
         <Grid item><input type="password" placeholder="password" name="password" required /></Grid>
         

@@ -38,3 +38,21 @@
   margin-top: 50px;
   width: 100%;
 }
+
+.search {
+  margin: 2%;
+}
+
+.column {
+  flex-basis: '33.33%',
+}
+
+.accordingHeading {
+  font-size: large;
+  font-weight: 700;
+}
+
+.secondaryAccordianHeading {
+  align-self: flex-end;
+  font-size: medium;
+}
