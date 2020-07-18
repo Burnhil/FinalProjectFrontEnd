@@ -13,12 +13,16 @@ class User extends Component {
         // the decoded data should be a JSON object, so parse it as such.
         let decodedAuthDataJSON = JSON.parse(decodedAuthData);
         console.log(decodedAuthDataJSON);
+        return decodedAuthDataJSON;
 
     }
 
     render() {
         console.log(`this is inside users with token = ${this.props.token}`)
-        console.log(this.props.token)
+        console.log(this.props.token);
+        let authorizedUser = this.parseJWT(this.props.token);
+        console.log(authorizedUser);
+        console.log(authorizedUser.UserType)
         return <h1>Start of user page</h1>;
     }
 }
