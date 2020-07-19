@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Login from '../components/Login.js';
 
-import { setToken } from '../redux/actions';
+import { setToken, unsetToken } from '../redux/actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
         setToken: (submitEvent) => dispatch(setToken(submitEvent)),
 
         //need to remove token still
-        unsetToken: (submitEvent) => dispatch(setToken(submitEvent)),
+        unsetToken: (submitEvent) => dispatch(unsetToken(submitEvent)),
     }
 }
 

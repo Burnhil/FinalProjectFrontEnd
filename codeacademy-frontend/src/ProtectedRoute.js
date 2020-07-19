@@ -3,10 +3,13 @@ import { Redirect, Route } from 'react-router-dom';
 
 
 const ProtectedRoute = ({component: Component, ...rest}) => {
+    console.log(`this is rest ${rest}`);
+    console.log(rest);
     return(
+        
         <Route
         {...rest}
-        render={(props) => checkAuth() 
+        render={(props) => checkAuth(rest.token) 
             ? <Component {...props} />
             : <Redirect to="/login"/>}
         />

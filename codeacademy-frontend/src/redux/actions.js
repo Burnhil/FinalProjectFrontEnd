@@ -45,7 +45,7 @@ export const setToken = (eventObj) => {
     }   
 }
 
-//function to remove token from store/state logout
+//function to remove token from store/state
 export const unsetToken = (tokenToRemove) => {
     return {
         type: "UNSET_TOKEN",
