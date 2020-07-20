@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Button, Grid, CardMedia, Paper, Container } from '@material-ui/core';
+import {Grid, Paper } from '@material-ui/core';
 import Provider from '../containers/Provider.js';
 import Map from '../containers/Map.js'
 

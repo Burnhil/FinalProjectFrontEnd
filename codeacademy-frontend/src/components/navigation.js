@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Button, Grid, CardMedia } from '@material-ui/core';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { AppBar, Toolbar,Grid} from '@material-ui/core';
+import { Link, Route } from 'react-router-dom';
 import Home from './Home.js';
 import Search from './Search.js';
 import Login from '../containers/Login.js';

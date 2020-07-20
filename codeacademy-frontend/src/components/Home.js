@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Button, Grid, CardMedia, Paper, Container } from '@material-ui/core';
+import { Paper, Container } from '@material-ui/core';
 
 
 const Home = (props) => {

@@ -7,6 +7,7 @@ const token = (state = null, action) => {
             return action.value;
         case "UNSET_TOKEN":
             return null;
+        default:
     }
     return state;
 }
@@ -16,24 +17,30 @@ const providerInfo = (state = [], action) => {
     switch(action.type) {
         case "SET_PROVIDERINFO":
             return action.value;
+        default:
+            return state;
     }
-    return state;
+    
 }
 
 const serviceInfo = (state = [], action) => {
     switch(action.type) {
         case "SET_SERVICEINFO":
             return action.value;
+        default:
+            return state;
     }
-    return state;
+    
 }
 
 const providerServiceInfo = (state = [], action) => {
     switch(action.type) {
         case "SET_SERVICE_PROVIDER_INFO":
             return action.value;
+        default:
+            return state;
     }
-    return state;
+    
 }
 
 export default combineReducers({ providerInfo, serviceInfo, providerServiceInfo, token });

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, GridList } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import UserDB from '../components/UserDB.js'
 
 class User extends Component {

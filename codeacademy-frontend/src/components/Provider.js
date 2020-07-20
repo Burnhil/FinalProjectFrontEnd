@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Accordion, AccordionSummary, AccordionDetails, Typography, GridList } from '@material-ui/core';
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class Provider extends Component {
@@ -15,7 +15,7 @@ class Provider extends Component {
     render() {
 
 
-        if (this.props.providerServiceInfo.length == 0) {
+        if (this.props.providerServiceInfo.length === 0) {
             this.props.setProviderInfo();
             this.props.setServiceInfo();
             this.props.setProviderServiceInfo();
