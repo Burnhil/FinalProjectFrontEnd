@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import Home from './Home.js';
 import Search from './Search.js';
 import Login from '../containers/Login.js';
-import User from '../containers/Users.js'
+import User from '../containers/User.js'
 import ProtectedRoute from '../containers/ProtectedRoute.js';
 
 

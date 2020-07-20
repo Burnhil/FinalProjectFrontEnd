@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, GridList } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import UserDB from '../components/UserDB.js'
 
 class User extends Component {
     constructor(props) {
@@ -23,7 +26,18 @@ class User extends Component {
         let authorizedUser = this.parseJWT(this.props.token);
         console.log(authorizedUser);
         console.log(authorizedUser.UserType)
-        return <h1>Start of user page</h1>;
+
+        // //verify userType to show user only components to modify
+        // if(authorizedUser.UserType === "Admin"){
+
+        // }else{
+
+        // }
+
+
+        return <div><h1>User access below:</h1>
+            <UserDB />
+        </div>;
     }
 }
 
