@@ -22,7 +22,7 @@ class Provider extends Component {
         }
         //console.log(this.props.providerInfo);
         //console.log(this.props.serviceInfo);
-        console.log(this.props.providerServiceInfo);
+        // console.log(this.props.providerServiceInfo);
 
         if (this.props.providerServiceInfo !== null) {
             let displayProviders2 = [];

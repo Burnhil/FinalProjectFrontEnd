@@ -4,7 +4,7 @@ export const setToken = (eventObj) => {
     // TODO modify this action, so that it takes the onSubmit event handle object from Login,
     // perform the actual authentication, and then return as the "value" the actual retrieved token.
     return (dispatch) => {
-        let newToken = null;
+        //let newToken = null;
         // now perform authentication.
 
         eventObj.preventDefault();

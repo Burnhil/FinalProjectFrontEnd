@@ -11,12 +11,12 @@ const Search = (props) => {
             justify="left"
             spacing="2"
         >
-            <Grid item item xs={5}>
+            <Grid item >
                 <Paper xs={4}>
                     <Provider />
                 </Paper>
             </Grid>
-            <Grid item item xs={5}>
+            <Grid item >
                 <Paper xs={4}>
                     <Map />
                 </Paper>
