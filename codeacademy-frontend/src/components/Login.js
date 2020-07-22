@@ -18,7 +18,11 @@ const Login = (props) => {
         let finalDecodeUser = JSON.parse(decodeUser);
         console.log(finalDecodeUser);
         //set token info to show user name when logged in
-        userLoggedIn = <p> Welcome {finalDecodeUser.FristName} {finalDecodeUser.LastName} !</p>
+        let firstName = finalDecodeUser.FirstName;
+        let lastName = finalDecodeUser.LastName;
+        let userNameLogin = "Welcome " + firstName + " " + lastName + ".";
+
+         userLoggedIn = <p> {userNameLogin}</p>
 
         //jsx for user logout button
         logInOut = (<div>

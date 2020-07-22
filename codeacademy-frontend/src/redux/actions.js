@@ -1,4 +1,124 @@
 
+//create user 
+export const theCreateUser = (eventObj, theToken) => {
+    console.log("we are in the create action");
+    let token = theToken;
+    console.log(token);
+    eventObj.preventDefault();
+    
+    //example from 
+    // let FirstName = eventObj.target.username.value;
+    // let LastName = eventObj.target.password.value;
+
+    let FirstName = eventObj.target.firstname.value;
+    let LastName = eventObj.target.lastname.value;
+    let Organization = eventObj.target.organization.value;
+    let PhoneNumber = eventObj.target.phonenumber.value;
+    let Email = eventObj.target.email.value;
+    let UserType = eventObj.target.usertype.value;
+    let UserId = eventObj.target.userid.value;
+    let UserPassword = eventObj.target.userpassword.value;
+
+    // Make a JSON object that will be passed to the backend API
+    let credentials = {
+        FirstName: FirstName,
+        LastName: LastName,
+        Organization: Organization,
+        PhoneNumber: PhoneNumber,
+        Email: Email,
+        UserType: UserType,
+        UserId: UserId,
+        UserPassword: UserPassword
+    }
+
+return(dispatch) => {
+    fetch("http://localhost:3000/users", {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+        },
+        body: JSON.stringify(credentials),
+    })
+        .then(response => response.json())
+        .then(theUser => {
+            console.log(theUser);
+
+            const action = {
+                type: "SET_CREATEUSERINFO",
+                value: theUser
+            }
+            dispatch(action);
+        });
+
+    }
+}
+
+
+//pull user by id from database
+export const setUserById = (eventObj, theToken) => {
+
+    //console.log("we are instide userbyid ******");
+    let token = theToken;
+    //console.log(token);
+    eventObj.preventDefault();
+
+    let theUserId = eventObj.target.userid.value;
+    //console.log(theUserId);
+    let userIdEndpoint = "http://localhost:3000/users/" + theUserId;
+    //console.log(`the user id plus endpoint are = ${userIdEndpoint}`);
+    //console.log(typeof userIdEndpoint)
+
+    return (dispatch) => {
+        fetch(userIdEndpoint, {
+            method: 'get',
+            headers: {
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            }
+        })
+            .then(response => response.json())
+            .then(thePeopleData => {
+                console.log(thePeopleData);
+
+                const action = {
+                    type: "SET_USERBYID",
+                    value: thePeopleData
+                }
+                dispatch(action);
+            });
+    }
+}
+
+// pull all user info from database
+export const setAllUserInfo = (eventObj, theToken) => {
+    //set token info to be passed to database for authentication
+    let token = theToken;
+    //console.log(token);
+    eventObj.preventDefault();
+
+    return (dispatch) => {
+        //use fetch to set allUserInfo into state
+        fetch("http://localhost:3000/users", {
+            method: 'get',
+            headers: {
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            }
+        })
+            .then(response => response.json())
+            .then(userData => {
+                console.log(userData);
+
+                const action = {
+                    type: "SET_ALLUSERINFO",
+                    value: userData
+                }
+                dispatch(action);
+            });
+    }
+}
+
+
 //pull jwt from login in to put in store/state 
 export const setToken = (eventObj) => {
     // TODO modify this action, so that it takes the onSubmit event handle object from Login,
@@ -35,6 +155,8 @@ export const setToken = (eventObj) => {
                 // TODO Here, you need ot be able to somehow make use of the SET_TOKEN Redux action.
                 // The Login component has a container that ties that cation to it, so the action should
                 // be available to Login's props.setToken action function.
+                console.log(theData);
+                console.log(typeof theData);
                 const action = {
                     type: "SET_TOKEN",
                     value: theData.token
@@ -42,7 +164,7 @@ export const setToken = (eventObj) => {
                 dispatch(action);
             });
 
-    }   
+    }
 }
 
 //function to remove token from store/state
@@ -108,10 +230,10 @@ export const setProviderServiceInfo = () => {
                         //combine the providerinfo and serviceoffered 
                         let providerServiceInfo = [];   //create array to combine info into
                         //loop over each array and match by id
-                        for(let k = 0; k < theData.length; k++) {
-                            for(let i = 0; i<theSecondData.length; i++){
-                                 //console.log("we are here");  //testing data             
-                                 if(theData[k].TheServicesOfferedId[0] === theSecondData[i]._id){
+                        for (let k = 0; k < theData.length; k++) {
+                            for (let i = 0; i < theSecondData.length; i++) {
+                                //console.log("we are here");  //testing data             
+                                if (theData[k].TheServicesOfferedId[0] === theSecondData[i]._id) {
                                     //testing data to verify matching id's for provider/services offered
                                     //console.log(`this is the provider = ${theData[k].TheServicesOfferedId[0]} this is the serviceoffered = ${theSecondData[i]._id}`)
 
@@ -123,7 +245,7 @@ export const setProviderServiceInfo = () => {
                                         Address: theData[k].Address,
                                         City: theData[k].City,
                                         County: theData[k].County,
-                                        State: theData[k].State,         
+                                        State: theData[k].State,
                                         Email: theData[k].Email,
                                         PhoneNumber: theData[k].PhoneNumber,
                                         WebsiteInfo: theData[k].WebsiteInfo,
@@ -145,7 +267,7 @@ export const setProviderServiceInfo = () => {
                         const action = {
                             type: "SET_SERVICE_PROVIDER_INFO",
                             value: providerServiceInfo,
-        
+
                         }
                         dispatch(action);
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import UserDB from '../components/UserDB.js'
+import UserDB from '../containers/UserDB.js'
+import UserId from '../containers/UserId.js'
+import CreateUser from '../containers/CreateUser.js'
 
 class User extends Component {
     constructor(props) {
@@ -19,11 +21,11 @@ class User extends Component {
     }
 
     render() {
-        console.log(`this is inside users with token = ${this.props.token}`)
-        console.log(this.props.token);
-        let authorizedUser = this.parseJWT(this.props.token);
-        console.log(authorizedUser);
-        console.log(authorizedUser.UserType)
+        // console.log(`this is inside users with token = ${this.props.token}`)
+        // console.log(this.props.token);
+        // let authorizedUser = this.parseJWT(this.props.token);
+        // console.log(authorizedUser);
+        // console.log(authorizedUser.UserType)
 
         // //verify userType to show user only components to modify
         // if(authorizedUser.UserType === "Admin"){
@@ -35,6 +37,8 @@ class User extends Component {
 
         return <div><h1>User access below:</h1>
             <UserDB />
+            <UserId />
+            <CreateUser />
         </div>;
     }
 }

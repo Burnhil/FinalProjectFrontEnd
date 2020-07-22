@@ -1,5 +1,41 @@
 import { combineReducers } from 'redux';
 
+//create user info 
+const createUserInfo = (state = null, action) => {
+    switch(action.type) {
+        case "SET_CREATEUSERINFO":
+            return action.value;
+        case "UNSET_CREATEUSERINFO":
+            return null;
+        default:
+    }
+    return state;
+}
+
+//userById info 
+const userById = (state = null, action) => {
+    switch(action.type) {
+        case "SET_USERBYID":
+            return action.value;
+        case "UNSET_USERBYID":
+            return null;
+        default:
+    }
+    return state;
+}
+
+//all user info 
+const allUserInfo = (state = null, action) => {
+    switch(action.type) {
+        case "SET_ALLUSERINFO":
+            return action.value;
+        case "UNSET_ALLUSERINFO":
+            return null;
+        default:
+    }
+    return state;
+}
+
 //jwt reducer 
 const token = (state = null, action) => {
     switch(action.type) {
@@ -43,4 +79,4 @@ const providerServiceInfo = (state = [], action) => {
     
 }
 
-export default combineReducers({ providerInfo, serviceInfo, providerServiceInfo, token });
+export default combineReducers({ providerInfo, serviceInfo, providerServiceInfo, token, allUserInfo, userById, createUserInfo });
