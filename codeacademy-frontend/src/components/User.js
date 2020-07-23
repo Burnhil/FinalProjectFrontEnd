@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import UserDB from '../containers/UserDB.js'
 import UserId from '../containers/UserId.js'
 import CreateUser from '../containers/CreateUser.js'
+import UserUpdate from '../containers/UserUpdate.js'
+import DeleteUser from '../containers/DeleteUser.js'
+import LinkUserProvider from '../containers/LinkUserProvider.js'
+import UserResetPassword from '../containers/UserResetPassword.js'
+import DisableUserAccount from '../containers/DisableUserAccount.js'
 
 class User extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     parseJWT = (token) => {
         //grab the middle part of the token.
@@ -39,6 +44,11 @@ class User extends Component {
             <UserDB />
             <UserId />
             <CreateUser />
+            <UserUpdate />
+            <DeleteUser />
+            <LinkUserProvider />
+            <UserResetPassword />
+            <DisableUserAccount />
         </div>;
     }
 }

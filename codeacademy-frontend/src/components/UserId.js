@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Table, TableHead, TableRow, TableCell, TableBody, Container } from '@material-ui/core';
+import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 //create view user by id
@@ -10,8 +10,8 @@ const UserId = (props) => {
 
     //set theUserById info to an array
     let theUserById = [];
-    console.log(typeof props.userById);
-    console.log(props.userById.message);
+    // console.log(typeof props.userById);
+    // console.log(props.userById.message);
 
     //check if error finding userby id 
     if (typeof props.userById.message === 'undefined') {

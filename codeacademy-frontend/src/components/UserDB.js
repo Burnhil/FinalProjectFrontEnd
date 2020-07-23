@@ -18,7 +18,7 @@ const UserDB = (props) => {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >                    <div >
-                    <Typography variant="h6">View all Users.</Typography>
+                    <Typography variant="h6">View all Users</Typography>
                 </div>
             </AccordionSummary>
            {/**create form for button to call setAllUserInfo */}
@@ -45,6 +45,7 @@ const UserDB = (props) => {
                     <TableCell>Changed By</TableCell>
                     <TableCell>Changed Date</TableCell>
                     <TableCell>User Type</TableCell>
+                    <TableCell>Provider Id</TableCell>
                     
                 </TableHead>
                 <TableBody>
@@ -61,6 +62,7 @@ const UserDB = (props) => {
                             <TableCell>{row["ChangedBy"]}</TableCell>
                             <TableCell>{row["ChangedDateTime"]}</TableCell>
                             <TableCell>{row["UserType"]}</TableCell>
+                            <TableCell>{row["ProviderID"]}</TableCell>
                            
                         </TableRow>
                     ))}

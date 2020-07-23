@@ -1,5 +1,65 @@
 import { combineReducers } from 'redux';
 
+//disable user account
+const disableUserAccount = (state = null, action) => {
+    switch(action.type) {
+        case "SET_DISABLEUSERACCOUNT":
+            return action.value;
+        case "UNSET_DISABLEUSERACCOUNT":
+            return null;
+        default:
+    }
+    return state;
+}
+
+//reset password
+const resetPassword = (state = null, action) => {
+    switch(action.type) {
+        case "SET_RESETPASSWORD":
+            return action.value;
+        case "UNSET_RESETPASSWORD":
+            return null;
+        default:
+    }
+    return state;
+}
+
+//link user provider
+const linkUserProvider = (state = null, action) => {
+    switch(action.type) {
+        case "SET_LINKUSERPROVIDER":
+            return action.value;
+        case "UNSET_LINKUSERPROVIDER":
+            return null;
+        default:
+    }
+    return state;  
+}
+
+//delete user info
+const deleteUserInfo = (state = null, action) => {
+    switch(action.type) {
+        case "SET_DELTEUSERINFO":
+            return action.value;
+        case "UNSET_DELETEUSERINFO":
+            return null;
+        default:
+    }
+    return state;
+}
+
+//update user info
+const updateUserInfo = (state = null, action) => {
+    switch(action.type) {
+        case "SET_UPDATEDUSERINFO":
+            return action.value;
+        case "UNSET_UPDATEDUSERINFO":
+            return null;
+        default:
+    }
+    return state;
+}
+
 //create user info 
 const createUserInfo = (state = null, action) => {
     switch(action.type) {
@@ -79,4 +139,5 @@ const providerServiceInfo = (state = [], action) => {
     
 }
 
-export default combineReducers({ providerInfo, serviceInfo, providerServiceInfo, token, allUserInfo, userById, createUserInfo });
+export default combineReducers({ providerInfo, serviceInfo, providerServiceInfo, token, allUserInfo, 
+    userById, createUserInfo, updateUserInfo, deleteUserInfo, linkUserProvider, resetPassword, disableUserAccount });

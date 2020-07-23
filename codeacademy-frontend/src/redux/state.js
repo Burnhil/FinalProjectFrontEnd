@@ -9,5 +9,11 @@ export default {
     allUserInfo: [],
     userById: "",
     createUserInfo: "",
+    updateUserInfo: "",
+    deleteUserInfo: "",
+    linkUserProvider: [],
+    resetPassword: [],
+    disableUserAccount: "",
+
 
 }
