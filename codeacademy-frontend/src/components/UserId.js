@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
+import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Container, ListItem, ListItemText } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 //create view user by id
@@ -18,26 +18,29 @@ const UserId = (props) => {
 
         //if props.userById has an object build user info to display to user
         if (typeof props.userById === 'object') {
-            let userName = `${props.userById.FirstName} ${props.userById.LastName}`;
+
             theUserById = <div>
-                <h5>{userName}</h5>
-                <ul>
-                    <li>User Id{` ${props.userById._ID}`}</li>
-                    <li>User Name:{` ${props.userById.UserId}`}</li>
-                    <li>Organization:{` ${props.userById.Organization}`}</li>
-                    <li>Email:{` ${props.userById.Email}`}</li>
-                    <li>Phone Number:{` ${props.userById.PhoneNumber}`}</li>
-                    <li>Last Login:{` ${props.userById.LastLogin}`}</li>
-                    <li>Changed By:{` ${props.userById.ChangedBy}`}</li>
-                    <li>Changed Date:{` ${props.userById.ChangedDateTime}`}</li>
-                </ul>
+                <Container>
+
+                    <ListItem><ListItemText primary={`Id: ${props.userById._id}`} /></ListItem>
+                    <ListItem><ListItemText primary={`UserID: ${props.userById.UserId}`} /></ListItem>
+                    <ListItem><ListItemText primary={`First Name: ${props.userById.FirstName}`} /></ListItem>
+                    <ListItem><ListItemText primary={`Last Name: ${props.userById.LastName}`} /></ListItem>
+                    <ListItem><ListItemText primary={`Organization: ${props.userById.Organization}`} /></ListItem>
+                    <ListItem><ListItemText primary={`Email: ${props.userById.Email}`} /></ListItem>
+                    <ListItem><ListItemText primary={`Phone Number: ${props.userById.PhoneNumber}`} /></ListItem>
+                    <ListItem><ListItemText primary={`Last Login: ${props.userById.LastLogin}`} /></ListItem>
+                    <ListItem><ListItemText primary={`Changed By: ${props.userById.ChangedBy}`} /></ListItem>
+                    <ListItem><ListItemText primary={`Changed By Date: ${props.userById.ChangedDateTime}`} /></ListItem>
+
+                </Container>
             </div>
         }
-        
+
     } else {
         //display error message if userby id didn't work
         theUserById = "Sorry there has been an error trying to find user by id.  Please check the id and try again.";
-        
+
     }
 
     return <div>
@@ -59,7 +62,7 @@ const UserId = (props) => {
                         <Grid item><input type="submit" value="Click to user by Id." /></Grid>
                     </Grid>
                 </form>
-                {/**call theUserById jsx to show output to user */}        
+                {/**call theUserById jsx to show output to user */}
             </AccordionDetails>
             {theUserById}
         </Accordion>

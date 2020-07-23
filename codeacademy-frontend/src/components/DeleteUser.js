@@ -14,14 +14,14 @@ const DeleteUser = (props) => {
      
         theDeletedUserInfo  = <div><Container>
             <h4>The following profile has been deleted:</h4>
-            <ListItem><ListItemText primary={props.deleteUserInfo.FirstName} /></ListItem>
-            <ListItem><ListItemText primary={props.deleteUserInfo.LastName} /></ListItem>
-            <ListItem><ListItemText primary={props.deleteUserInfo.Organization} /></ListItem>
-            <ListItem><ListItemText primary={props.deleteUserInfo.PhoneNumber} /></ListItem>
-            <ListItem><ListItemText primary={props.deleteUserInfo.Email}/></ListItem>
-            <ListItem><ListItemText primary={props.deleteUserInfo.UserType} /></ListItem>
-            <ListItem><ListItemText primary={props.deleteUserInfo.UserId}/></ListItem>
-            <ListItem><ListItemText primary={props.deleteUserInfo._id}/></ListItem>  
+            <ListItem><ListItemText primary={`First Name: ${props.deleteUserInfo.FirstName}`} /></ListItem>
+            <ListItem><ListItemText primary={`Last Name: ${props.deleteUserInfo.LastName}`} /></ListItem>
+            <ListItem><ListItemText primary={`Organization: ${props.deleteUserInfo.Organization}`} /></ListItem>
+            <ListItem><ListItemText primary={`Phone Number: ${props.deleteUserInfo.PhoneNumber}`} /></ListItem>
+            <ListItem><ListItemText primary={`Email: ${props.deleteUserInfo.Email}`}/></ListItem>
+            <ListItem><ListItemText primary={`User Type: ${props.deleteUserInfo.UserType}`} /></ListItem>
+            <ListItem><ListItemText primary={`User Id: ${props.deleteUserInfo.UserId}`}/></ListItem>
+            <ListItem><ListItemText primary={`Id: ${props.deleteUserInfo._id}`}/></ListItem>  
         </Container>
         </div>
         }

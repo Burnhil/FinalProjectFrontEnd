@@ -25,14 +25,14 @@ const CreateUser = (props) => {
      
     theCreatedUserInfo = <div><Container>
         <h4>The following profile has been added:</h4>
-        <ListItem><ListItemText primary={props.createUserInfo.newUser.FirstName} /></ListItem>
-        <ListItem><ListItemText primary={props.createUserInfo.newUser.LastName} /></ListItem>
-        <ListItem><ListItemText primary={props.createUserInfo.newUser.Organization} /></ListItem>
-        <ListItem><ListItemText primary={props.createUserInfo.newUser.PhoneNumber} /></ListItem>
-        <ListItem><ListItemText primary={props.createUserInfo.newUser.Email}/></ListItem>
-        <ListItem><ListItemText primary={props.createUserInfo.newUser.UserType} /></ListItem>
-        <ListItem><ListItemText primary={props.createUserInfo.newUser.UserId}/></ListItem>
-        <ListItem><ListItemText primary={props.createUserInfo.newUser._id}/></ListItem>  
+        <ListItem><ListItemText primary={`First Name: ${props.createUserInfo.newUser.FirstName}`} /></ListItem>
+        <ListItem><ListItemText primary={`Last Name: ${props.createUserInfo.newUser.LastName}`} /></ListItem>
+        <ListItem><ListItemText primary={`Organization: ${props.createUserInfo.newUser.Organization}`} /></ListItem>
+        <ListItem><ListItemText primary={`Phone Number: ${props.createUserInfo.newUser.PhoneNumber}`} /></ListItem>
+        <ListItem><ListItemText primary={`Email: ${props.createUserInfo.newUser.Email}`}/></ListItem>
+        <ListItem><ListItemText primary={`User Type: ${props.createUserInfo.newUser.UserType}`} /></ListItem>
+        <ListItem><ListItemText primary={`User Id: ${props.createUserInfo.newUser.UserId}`}/></ListItem>
+        <ListItem><ListItemText primary={`Id: ${props.createUserInfo.newUser._id}`}/></ListItem>  
     </Container>
     </div>
     }

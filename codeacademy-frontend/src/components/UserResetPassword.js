@@ -15,12 +15,12 @@ const UserResetPassword = (props) => {
      
         theResetPasswordInfo = <div><Container>
             <h4>The password information for the following profile has been reset.</h4>
-            <ListItem><ListItemText primary={props.resetPassword.UserId} /></ListItem>
-            <ListItem><ListItemText primary={props.resetPassword.FirstName} /></ListItem>
-            <ListItem><ListItemText primary={props.resetPassword.LastName} /></ListItem>
-            <ListItem><ListItemText primary={props.resetPassword.Organization} /></ListItem>
-            <ListItem><ListItemText primary={props.resetPassword.PhoneNumber} /></ListItem>
-            <ListItem><ListItemText primary={props.resetPassword.Email}/></ListItem>
+            <ListItem><ListItemText primary={`User Id: ${props.resetPassword.UserId}`} /></ListItem>
+            <ListItem><ListItemText primary={`First Name: ${props.resetPassword.FirstName}`}/></ListItem>
+            <ListItem><ListItemText primary={`Last Name: ${props.resetPassword.LastName}`} /></ListItem>
+            <ListItem><ListItemText primary={`Organization: ${props.resetPassword.Organization}`} /></ListItem>
+            <ListItem><ListItemText primary={`Phone Number: ${props.resetPassword.PhoneNumber}`} /></ListItem>
+            <ListItem><ListItemText primary={`Email: ${props.resetPassword.Email}`}/></ListItem>
         </Container>
         </div>
      }

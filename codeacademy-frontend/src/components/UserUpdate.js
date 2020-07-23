@@ -18,12 +18,12 @@ const UserUpdate = (props) => {
      
         theUpdatedUserInfo = <div><Container>
             <h4>The following profile has been updated:</h4>
-            <ListItem><ListItemText primary={props.updateUserInfo.FirstName} /></ListItem>
-            <ListItem><ListItemText primary={props.updateUserInfo.LastName} /></ListItem>
-            <ListItem><ListItemText primary={props.updateUserInfo.Organization} /></ListItem>
-            <ListItem><ListItemText primary={props.updateUserInfo.PhoneNumber} /></ListItem>
-            <ListItem><ListItemText primary={props.updateUserInfo.Email}/></ListItem>
-            <ListItem><ListItemText primary={props.updateUserInfo.UserType} /></ListItem>
+            <ListItem><ListItemText primary={`First Name: ${props.updateUserInfo.FirstName}`} /></ListItem>
+            <ListItem><ListItemText primary={`Last Name: ${props.updateUserInfo.LastName}`} /></ListItem>
+            <ListItem><ListItemText primary={`Organization: ${props.updateUserInfo.Organization}`} /></ListItem>
+            <ListItem><ListItemText primary={`Phone Number: ${props.updateUserInfo.PhoneNumber}`} /></ListItem>
+            <ListItem><ListItemText primary={`Email: ${props.updateUserInfo.Email}`}/></ListItem>
+            <ListItem><ListItemText primary={`User Type: ${props.updateUserInfo.UserType}`} /></ListItem>
         </Container>
         </div>
      }

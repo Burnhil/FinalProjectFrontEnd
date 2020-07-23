@@ -16,14 +16,14 @@ const DeleteProvider = (props) => {
         //add each field to jsx
         theDeletedProviderInfo  = <div><Container>
             <h4>The following profile has been deleted:</h4>
-            <ListItem><ListItemText primary={props.deleteProviderInfo._id}/></ListItem> 
-            <ListItem><ListItemText primary={props.deleteProviderInfo.OrganizationName} /></ListItem>
-            <ListItem><ListItemText primary={props.deleteProviderInfo.PhoneNumber} /></ListItem>
-            <ListItem><ListItemText primary={props.deleteProviderInfo.Email}/></ListItem>
-            <ListItem><ListItemText primary={props.deleteProviderInfo.Address} /></ListItem>
-            <ListItem><ListItemText primary={props.deleteProviderInfo.City}/></ListItem>   
-            <ListItem><ListItemText primary={props.deleteProviderInfo.State}/></ListItem>   
-            <ListItem><ListItemText primary={props.deleteProviderInfo.WebsiteInfo}/></ListItem>     
+            <ListItem><ListItemText primary={`Id: ${props.deleteProviderInfo._id}`}/></ListItem> 
+            <ListItem><ListItemText primary={`Organization: ${props.deleteProviderInfo.OrganizationName}`} /></ListItem>
+            <ListItem><ListItemText primary={`Phone Number: ${props.deleteProviderInfo.PhoneNumber}`} /></ListItem>
+            <ListItem><ListItemText primary={`Email: ${props.deleteProviderInfo.Email}`}/></ListItem>
+            <ListItem><ListItemText primary={`Address: ${props.deleteProviderInfo.Address}`} /></ListItem>
+            <ListItem><ListItemText primary={`City: ${props.deleteProviderInfo.City}`}/></ListItem>   
+            <ListItem><ListItemText primary={`State: ${props.deleteProviderInfo.State}`}/></ListItem>   
+            <ListItem><ListItemText primary={`Website: ${props.deleteProviderInfo.WebsiteInfo}`}/></ListItem>     
         </Container>
         </div>
         }

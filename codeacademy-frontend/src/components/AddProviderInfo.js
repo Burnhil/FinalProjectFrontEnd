@@ -16,15 +16,15 @@ const AddProviderInfo = (props) => {
     if (typeof props.addProviderInfo === 'object') {
         theAddProviderInfo = <div><Container>
             <h4>The following Provider has been added:</h4>
-            <ListItem><ListItemText primary={props.addProviderInfo._id} /></ListItem>
-            <ListItem><ListItemText primary={props.addProviderInfo.OrganizationName} /></ListItem>
-            <ListItem><ListItemText primary={props.addProviderInfo.Address} /></ListItem>
-            <ListItem><ListItemText primary={props.addProviderInfo.City} /></ListItem>
-            <ListItem><ListItemText primary={props.addProviderInfo.State} /></ListItem>
-            <ListItem><ListItemText primary={props.addProviderInfo.County} /></ListItem>
-            <ListItem><ListItemText primary={props.addProviderInfo.Email} /></ListItem>
-            <ListItem><ListItemText primary={props.addProviderInfo.WebsiteInfo} /></ListItem>
-            <ListItem><ListItemText primary={props.addProviderInfo.PhoneNumber} /></ListItem>
+            <ListItem><ListItemText primary={`Id: ${props.addProviderInfo._id}`}/></ListItem>
+            <ListItem><ListItemText primary={`Organization: ${props.addProviderInfo.OrganizationName}`}/></ListItem>
+            <ListItem><ListItemText primary={`Addrres: ${props.addProviderInfo.Address}`}/></ListItem>
+            <ListItem><ListItemText primary={`City: ${props.addProviderInfo.City}`} /></ListItem>
+            <ListItem><ListItemText primary={`State: ${props.addProviderInfo.State}`}/></ListItem>
+            <ListItem><ListItemText primary={`County: ${props.addProviderInfo.County}`} /></ListItem>
+            <ListItem><ListItemText primary={`Email: ${props.addProviderInfo.Email}`} /></ListItem>
+            <ListItem><ListItemText primary={`Website" ${props.addProviderInfo.WebsiteInfo}`} /></ListItem>
+            <ListItem><ListItemText primary={`Phone Number: ${props.addProviderInfo.PhoneNumber}`} /></ListItem>
         </Container>
         </div>
     }

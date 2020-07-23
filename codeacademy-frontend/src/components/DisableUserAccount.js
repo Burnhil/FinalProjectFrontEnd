@@ -18,10 +18,10 @@ const DisableUserAccount = (props) => {
             console.log("this account is disabled");
             userDisabledInfo = <div><Container>
                 <h4>The following profile has been disabled:</h4>
-                <ListItem><ListItemText primary={props.disableUserAccount._id} /></ListItem>
-                <ListItem><ListItemText primary={props.disableUserAccount.UserId} /></ListItem>
-                <ListItem><ListItemText primary={props.disableUserAccount.FirstName} /></ListItem>
-                <ListItem><ListItemText primary={props.disableUserAccount.LastName} /></ListItem>
+                <ListItem><ListItemText primary={`Id: ${props.disableUserAccount._id}`} /></ListItem>
+                <ListItem><ListItemText primary={`UserID: ${props.disableUserAccount.UserId}`} /></ListItem>
+                <ListItem><ListItemText primary={`First Name: ${props.disableUserAccount.FirstName}`} /></ListItem>
+                <ListItem><ListItemText primary={`Last Name: ${props.disableUserAccount.LastName}`} /></ListItem>
 
             </Container>
             </div>
@@ -29,10 +29,10 @@ const DisableUserAccount = (props) => {
             console.log("this account is active very active");
             userDisabledInfo = <div><Container>
                 <h4>The following profile has been re-activated:</h4>
-                <ListItem><ListItemText primary={props.disableUserAccount._id} /></ListItem>
-                <ListItem><ListItemText primary={props.disableUserAccount.UserId} /></ListItem>
-                <ListItem><ListItemText primary={props.disableUserAccount.FirstName} /></ListItem>
-                <ListItem><ListItemText primary={props.disableUserAccount.LastName} /></ListItem>
+                <ListItem><ListItemText primary={`Id: ${props.disableUserAccount._id}`} /></ListItem>
+                <ListItem><ListItemText primary={`UserID: ${props.disableUserAccount.UserId}`} /></ListItem>
+                <ListItem><ListItemText primary={`First Name: ${props.disableUserAccount.FirstName}`} /></ListItem>
+                <ListItem><ListItemText primary={`Last Name: ${props.disableUserAccount.LastName}`} /></ListItem>
 
             </Container>
             </div>
