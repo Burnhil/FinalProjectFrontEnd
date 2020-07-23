@@ -42,7 +42,7 @@ const DeleteUser = (props) => {
                 <form onSubmit={(e) => props.theDeleteUserInfo(e, props.token)} >
                     <Grid container direction='row'>
                         <Grid item><input type="text" placeholder="User Id" name="userid" required /></Grid>
-                        <Grid item><input type="submit" value="Click to create user profile" /></Grid>
+                        <Grid item><input type="submit" value="Click to delete user profile" /></Grid>
                     </Grid>
                 </form>
                 

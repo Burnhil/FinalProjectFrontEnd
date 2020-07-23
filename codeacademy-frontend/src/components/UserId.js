@@ -56,7 +56,7 @@ const UserId = (props) => {
 
                     <Grid container direction='row'>
                         <Grid item><input type="text" placeholder="user_id" name="userid" required /></Grid>
-                        <Grid item><input type="submit" value="Click to pull all users." /></Grid>
+                        <Grid item><input type="submit" value="Click to user by Id." /></Grid>
                     </Grid>
                 </form>
                 {/**call theUserById jsx to show output to user */}        

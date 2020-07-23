@@ -1,5 +1,42 @@
 import { combineReducers } from 'redux';
 
+//delete provider information
+const deleteProviderInfo = (state = null, action) => {
+    switch(action.type) {
+        case "SET_DELETEPROVIDERINFO":
+            return action.value;
+        case "UNSET_DELETEPROVIDERINFO":
+            return null;
+        default:
+    }
+    return state;
+}
+
+
+//update provider infromation
+const updateProviderInfo = (state = null, action) => {
+    switch(action.type) {
+        case "SET_UPDATEPROVIDERINFO":
+            return action.value;
+        case "UNSET_UPDATEPROVIDERINFO":
+            return null;
+        default:
+    }
+    return state;
+}
+
+//add provider information
+const addProviderInfo = (state = null, action) => {
+    switch(action.type) {
+        case "SET_ADDPROVIDERINFO":
+            return action.value;
+        case "UNSET_ADDPROVIDERINFO":
+            return null;
+        default:
+    }
+    return state;
+}
+
 //disable user account
 const disableUserAccount = (state = null, action) => {
     switch(action.type) {
@@ -140,4 +177,5 @@ const providerServiceInfo = (state = [], action) => {
 }
 
 export default combineReducers({ providerInfo, serviceInfo, providerServiceInfo, token, allUserInfo, 
-    userById, createUserInfo, updateUserInfo, deleteUserInfo, linkUserProvider, resetPassword, disableUserAccount });
+    userById, createUserInfo, updateUserInfo, deleteUserInfo, linkUserProvider, resetPassword, disableUserAccount, addProviderInfo,
+    updateProviderInfo, deleteProviderInfo });

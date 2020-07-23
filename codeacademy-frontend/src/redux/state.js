@@ -12,8 +12,11 @@ export default {
     updateUserInfo: "",
     deleteUserInfo: "",
     linkUserProvider: [],
-    resetPassword: [],
+    resetPassword: "",
     disableUserAccount: "",
+    addProviderInfo: "",
+    updateProviderInfo: [],
+    deleteProviderInfo: "",
 
 
 }

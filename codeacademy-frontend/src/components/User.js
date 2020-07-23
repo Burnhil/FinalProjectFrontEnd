@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import UserDB from '../containers/UserDB.js'
-import UserId from '../containers/UserId.js'
-import CreateUser from '../containers/CreateUser.js'
-import UserUpdate from '../containers/UserUpdate.js'
-import DeleteUser from '../containers/DeleteUser.js'
-import LinkUserProvider from '../containers/LinkUserProvider.js'
-import UserResetPassword from '../containers/UserResetPassword.js'
-import DisableUserAccount from '../containers/DisableUserAccount.js'
+import UserDB from '../containers/UserDB.js';
+import UserId from '../containers/UserId.js';
+import CreateUser from '../containers/CreateUser.js';
+import UserUpdate from '../containers/UserUpdate.js';
+import DeleteUser from '../containers/DeleteUser.js';
+import LinkUserProvider from '../containers/LinkUserProvider.js';
+import UserResetPassword from '../containers/UserResetPassword.js';
+import DisableUserAccount from '../containers/DisableUserAccount.js';
+import AddProviderInfo from '../containers/AddProviderInfo.js';
+import UpdateProvider from '../containers/UpdateProvider.js';
+import DeleteProvider from '../containers/DeleteProvider.js'
+
 
 class User extends Component {
     // constructor(props) {
@@ -49,6 +53,9 @@ class User extends Component {
             <LinkUserProvider />
             <UserResetPassword />
             <DisableUserAccount />
+            <AddProviderInfo />
+            <UpdateProvider />
+            <DeleteProvider />
         </div>;
     }
 }

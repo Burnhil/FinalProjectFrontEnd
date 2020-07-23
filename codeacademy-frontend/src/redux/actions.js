@@ -1,18 +1,170 @@
 
+//delete provider info
+export const theDeleteProviderInfo = (eventObj, theToken) => {
+    console.log("we are inside delete provider info");
+    let token = theToken;
+    console.log(token);
+    eventObj.preventDefault();
+
+    let providerIdToDelete = eventObj.target.providerid.value;
+
+    let deleteProviderEndpoint = "http://localhost:3000/providers/" + providerIdToDelete;
+
+       //create fetch to call delete user endpoint in database
+    return (dispatch) => {
+        fetch(deleteProviderEndpoint, {
+            method: 'delete',
+            headers: {
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            },
+        })
+            .then(response => response.json())
+            .then(deleteProvider => {
+                console.log(deleteProvider); 
+                //info coming back was message: and deletedUserDoc set deletedUserDoc to deleteUser.deletedUserDoc
+                const action = {
+                    type: "SET_DELETEPROVIDERINFO",
+                    value: deleteProvider.deletedProviderDoc,
+                }
+                dispatch(action);
+            });
+    }
+
+}
+
+
+
+// update provider info
+export const theUpdateProviderInfo = (eventObj, theToken) => {
+    console.log("we are inside update provider info");
+    let token = theToken;
+    console.log(token);
+    eventObj.preventDefault();
+
+    //set object to contain credentials
+    let credentials = {
+
+    }
+
+    if(eventObj.target.providerid.value !== 'null'){
+        credentials.OrganizationName = eventObj.target.organizationname.value
+    }
+    if(eventObj.target.providerid.value !== 'null'){
+        credentials.Email = eventObj.target.email.value
+    }
+    if(eventObj.target.providerid.value !== 'null'){
+        credentials.WebsiteInfo = eventObj.target.websiteinfo.value
+    }
+    if(eventObj.target.providerid.value !== 'null'){
+        credentials.PhoneNumber = eventObj.target.phonenumber.value
+    }
+    if(eventObj.target.providerid.value !== 'null'){
+        credentials.Address = eventObj.target.address.value
+    }
+    if(eventObj.target.providerid.value !== 'null'){
+        credentials.City = eventObj.target.city.value
+    }
+    if(eventObj.target.providerid.value !== 'null'){
+        credentials.State = eventObj.target.state.value
+    }
+    if(eventObj.target.providerid.value !== 'null'){
+        credentials.County = eventObj.target.county.value
+    }
+
+    console.log(credentials)
+
+    //set userid to add to url
+    let providerIdToChange = eventObj.target.providerid.value;
+
+    let updateEndpointURL = "http://localhost:3000/providers/" + providerIdToChange;
+    //console.log(updateEndpointURL)
+
+    //create fetch to call update provider endpoint in database
+    return (dispatch) => {
+        fetch(updateEndpointURL, {
+            method: 'put',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            },
+            body: JSON.stringify(credentials),
+        })
+            .then(response => response.json())
+            .then(updateProvider => {
+                console.log(updateProvider); 
+                //info coming back to update provider
+                const action = {
+                    type: "SET_UPDATEPROVIDERINFO",
+                    value: updateProvider.message,
+                }
+                dispatch(action);
+            });
+
+    }
+
+}
+
+
+
+// add provider info
+export const theAddProviderInfo = (eventObj, theToken) => {
+    
+    let token = theToken;
+    //console.log(token);
+    eventObj.preventDefault();
+
+    //create object for add provider information
+    let credentials = {
+        OrganizationName: eventObj.target.organizationname.value,
+        Email: eventObj.target.email.value,
+        WebsiteInfo: eventObj.target.websiteinfo.value,
+        PhoneNumber: eventObj.target.phonenumber.value,
+        Address: eventObj.target.address.value,
+        City: eventObj.target.city.value,
+        State: eventObj.target.state.value,
+        County: eventObj.target.county.value,
+    }
+
+    return (dispatch) => {
+        
+        fetch("http://localhost:3000/providers", {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            },
+            body: JSON.stringify(credentials),
+        })
+            .then(response => response.json())
+            .then(createProvider => {
+                //console.log(createProvider);
+                //set state for addproviderinfo
+                const action = {
+                    type: "SET_ADDPROVIDERINFO",
+                    value: createProvider.newProvider,
+                }
+                dispatch(action);
+            });
+
+    }
+
+}
 
 
 //disable user account
 export const theDisableUserAccount = (eventObj, theToken) => {
-    console.log("we are inside disable account");
     let token = theToken;
-    console.log(token);
+    //console.log(token);
     eventObj.preventDefault();
-    
 
+    //set url endpoint with :userid
     let theUser = eventObj.target.userid.value;
-    let updateEndpointURL = "http://localhost:3000/users/disableuser/" + theUser; 
+    let updateEndpointURL = "http://localhost:3000/users/disableuser/" + theUser;
 
-    return(dispatch) => {
+    //call endpoint to change disable from true to false
+    return (dispatch) => {
         fetch(updateEndpointURL, {
             method: 'put',
             headers: {
@@ -21,15 +173,16 @@ export const theDisableUserAccount = (eventObj, theToken) => {
         })
             .then(response => response.json())
             .then(disableUser => {
-                console.log(disableUser); 
+                //console.log(disableUser); 
+                //save to state
                 const action = {
                     type: "SET_DISABLEUSERACCOUNT",
                     value: disableUser.disableUserDoc,
                 }
                 dispatch(action);
             });
-    
-        }
+
+    }
 
 }
 
@@ -45,9 +198,9 @@ export const theResetPassword = (eventObj, theToken) => {
     }
 
     let theUser = eventObj.target.userid.value;
-    let updateEndpointURL = "http://localhost:3000/users/resetpassword/" + theUser; 
+    let updateEndpointURL = "http://localhost:3000/users/resetpassword/" + theUser;
 
-    return(dispatch) => {
+    return (dispatch) => {
         fetch(updateEndpointURL, {
             method: 'put',
             headers: {
@@ -59,21 +212,21 @@ export const theResetPassword = (eventObj, theToken) => {
         })
             .then(response => response.json())
             .then(resetingUserPassword => {
-                console.log(resetingUserPassword); 
+                console.log(resetingUserPassword);
                 const action = {
                     type: "SET_RESETPASSWORD",
                     value: resetingUserPassword.resetPasswordDoc,
                 }
                 dispatch(action);
             });
-    
-        }
+
+    }
 }
 
 
 //link user provider
 export const theLinkUserProvider = (eventObj, theToken) => {
-    
+
     let token = theToken;
     //console.log(token);
     eventObj.preventDefault();
@@ -81,14 +234,14 @@ export const theLinkUserProvider = (eventObj, theToken) => {
     let theUser = eventObj.target.userid.value;
     let theProvider = eventObj.target.providerid.value;
 
-    let updateEndpointURL = "http://localhost:3000/users/link/" + theUser; 
+    let updateEndpointURL = "http://localhost:3000/users/link/" + theUser;
 
     let credentials = {
         _id: theProvider,
     }
 
     //create fetch statement to link user provider information
-    return(dispatch) => {
+    return (dispatch) => {
         fetch(updateEndpointURL, {
             method: 'put',
             headers: {
@@ -107,14 +260,14 @@ export const theLinkUserProvider = (eventObj, theToken) => {
                 }
                 dispatch(action);
             });
-    
-        }
+
+    }
 
 }
 
 //delete user info
 export const theDeleteUserInfo = (eventObj, theToken) => {
- 
+
     let token = theToken;
     //console.log(token);
     eventObj.preventDefault();
@@ -127,7 +280,7 @@ export const theDeleteUserInfo = (eventObj, theToken) => {
     //console.log(updateEndpointURL)
 
     //create fetch to call delete user endpoint in database
-    return(dispatch) => {
+    return (dispatch) => {
         fetch(updateEndpointURL, {
             method: 'delete',
             headers: {
@@ -143,8 +296,8 @@ export const theDeleteUserInfo = (eventObj, theToken) => {
                     value: deleteUser.deletedUserDoc,
                 }
                 dispatch(action);
-            });  
-        }
+            });
+    }
 }
 
 
@@ -159,35 +312,35 @@ export const theUpdateUserInfo = (eventObj, theToken) => {
     //console.log(userIdToChange);
     //console.log(typeof userIdToChange);
     let credentials = {
-        
+
     }
     //create credential object
-    if(eventObj.target.firstname.value !== 'null'){
+    if (eventObj.target.firstname.value !== 'null') {
         credentials.FirstName = eventObj.target.lastname.value;
     }
-    if(eventObj.target.lastname.value !== 'null'){
+    if (eventObj.target.lastname.value !== 'null') {
         credentials.LastName = eventObj.target.lastname.value;
     }
-    if(eventObj.target.organization.value !== 'null'){
-        credentials.Organization =  eventObj.target.organization.value;
+    if (eventObj.target.organization.value !== 'null') {
+        credentials.Organization = eventObj.target.organization.value;
     }
-    if(eventObj.target.phonenumber.value !== 'null'){
-        credentials.PhoneNumber =  eventObj.target.phonenumber.value;
+    if (eventObj.target.phonenumber.value !== 'null') {
+        credentials.PhoneNumber = eventObj.target.phonenumber.value;
     }
-    if(eventObj.target.email.value !== 'null'){
+    if (eventObj.target.email.value !== 'null') {
         credentials.Email = eventObj.target.email.value;
     }
-    if(eventObj.target.usertype.value !== 'null'){
+    if (eventObj.target.usertype.value !== 'null') {
         credentials.UserType = eventObj.target.usertype.value;
     }
     //test filling credential objects to be passed to database for update
     //console.log(credentials);
-    
+
     let updateEndpointURL = "http://localhost:3000/users/" + userIdToChange;
     //console.log(updateEndpointURL)
 
     //create fetch to call update user endpoint in database
-    return(dispatch) => {
+    return (dispatch) => {
         fetch(updateEndpointURL, {
             method: 'put',
             headers: {
@@ -207,18 +360,18 @@ export const theUpdateUserInfo = (eventObj, theToken) => {
                 }
                 dispatch(action);
             });
-    
-        }
+
+    }
 }
 
 
 //create user 
 export const theCreateUser = (eventObj, theToken) => {
-  
+
     let token = theToken;
     //console.log(token);
     eventObj.preventDefault();
-    
+
     //example from 
     // let FirstName = eventObj.target.username.value;
     // let LastName = eventObj.target.password.value;
@@ -244,26 +397,26 @@ export const theCreateUser = (eventObj, theToken) => {
         UserPassword: UserPassword
     }
 
-return(dispatch) => {
-    fetch("http://localhost:3000/users", {
-        method: 'post',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
-        },
-        body: JSON.stringify(credentials),
-    })
-        .then(response => response.json())
-        .then(theUser => {
-            //console.log(theUser);
+    return (dispatch) => {
+        fetch("http://localhost:3000/users", {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            },
+            body: JSON.stringify(credentials),
+        })
+            .then(response => response.json())
+            .then(theUser => {
+                //console.log(theUser);
 
-            const action = {
-                type: "SET_CREATEUSERINFO",
-                value: theUser
-            }
-            dispatch(action);
-        });
+                const action = {
+                    type: "SET_CREATEUSERINFO",
+                    value: theUser
+                }
+                dispatch(action);
+            });
 
     }
 }

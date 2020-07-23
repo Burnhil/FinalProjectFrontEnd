@@ -52,7 +52,7 @@ const UserUpdate = (props) => {
                         <Grid item><input type="text" placeholder="Email" name="email" required /></Grid>
                         <Grid item><input type="text" placeholder="User Type" name="usertype" required /></Grid>
                         <Grid item><input type="text" placeholder="User Id - required" name="userid" required /></Grid>
-                        <Grid item><input type="submit" value="Click to create user profile" /></Grid>
+                        <Grid item><input type="submit" value="Click to update user profile" /></Grid>
                     </Grid>
                 </form>  
             </AccordionDetails>

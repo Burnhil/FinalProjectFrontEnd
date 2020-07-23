@@ -5,12 +5,14 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 //reset user password
 const DisableUserAccount = (props) => {
 
-    console.log(props.token);
-    console.log(props.disableUserAccount);
-    console.log(typeof props.disableUserAccount);
+    // console.log(props.token);
+    // console.log(props.disableUserAccount);
+    // console.log(typeof props.disableUserAccount);
 
+    //create userDisableInfo to hold jsx to display to user
     let userDisabledInfo = [];
 
+    //check if its an object if so create jsx
     if (typeof props.disableUserAccount === 'object') {
         if (props.disableUserAccount.Disabled === true) {
             console.log("this account is disabled");
@@ -40,14 +42,14 @@ const DisableUserAccount = (props) => {
     }
 
     return <div>
-        {/** */}
+        {/** create accordian for disableuser*/}
         <Accordion>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >                    <div >
-                    <Typography variant="h6">Reset User Password</Typography>
+                    <Typography variant="h6">Disable User Profile</Typography>
                 </div>
             </AccordionSummary>
             <AccordionDetails>
@@ -62,7 +64,7 @@ const DisableUserAccount = (props) => {
                 </form>
 
             </AccordionDetails>
-            {/** */}
+            {/**display jsx to user for disableduser */}
             {userDisabledInfo}
         </Accordion>
     </div>;

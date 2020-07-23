@@ -44,7 +44,7 @@ const UserResetPassword = (props) => {
                     <Grid container direction='row'>
                         <Grid item><input type="text" placeholder="User Id" name="userid" required /></Grid>
                         <Grid item><input type="text" placeholder="New User Password" name="newpassword" required /></Grid>
-                        <Grid item><input type="submit" value="Click to link user and provider profile" /></Grid>
+                        <Grid item><input type="submit" value="Click to link reset password" /></Grid>
                     </Grid>
                 </form>
                 
