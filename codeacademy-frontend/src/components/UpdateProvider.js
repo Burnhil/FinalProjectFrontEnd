@@ -26,7 +26,7 @@ const UpdateProvider = (props) => {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >                    <div >
-                    <Typography variant="h6">Update Provider Info</Typography>
+                    <Typography variant="h6">Update Provider Information</Typography>
                 </div>
             </AccordionSummary>
             <AccordionDetails>

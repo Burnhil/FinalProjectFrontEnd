@@ -17,6 +17,14 @@ export default {
     addProviderInfo: "",
     updateProviderInfo: [],
     deleteProviderInfo: "",
-
-
+    linkProviderService: "",
+    addServicesOffered: "",
+    updateServicesOfferedInfo: "",
+    deleteServicesOffered: "",
+    addBedTransaction: "",
+    getBedTransaction: [],
+    getAllBedTransactionsById: [],
+    getProviderUsersInfo: [],
+    getProviderUsersById: [],
+    linkProviderUser: "",
 }

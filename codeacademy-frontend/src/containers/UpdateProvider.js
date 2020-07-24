@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-//letting updateprovider change disable field
+//letting updateprovider change field
 const mapDispatchToProps = (dispatch) => {
     return {
         theUpdateProviderInfo: (userInfo, theToken) => dispatch(theUpdateProviderInfo(userInfo, theToken)),

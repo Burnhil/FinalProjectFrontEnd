@@ -9,7 +9,17 @@ import UserResetPassword from '../containers/UserResetPassword.js';
 import DisableUserAccount from '../containers/DisableUserAccount.js';
 import AddProviderInfo from '../containers/AddProviderInfo.js';
 import UpdateProvider from '../containers/UpdateProvider.js';
-import DeleteProvider from '../containers/DeleteProvider.js'
+import DeleteProvider from '../containers/DeleteProvider.js';
+import LinkProviderService from '../containers/LinkProviderService.js';
+import AddServicesOffered from '../containers/AddServicesOffered.js';
+import UpdateServicesOffered from '../containers/UpdateServicesOffered.js';
+import DeleteServicesOffered from '../containers/DeleteServicesOffered.js';
+import BedTransaction from '../containers/BedTransaction.js';
+import GetAllBedTransactions from '../containers/GetAllBedTransactions.js';
+import GetAllBedTransactionsById from '../containers/GetAllBedTransactionsById.js';
+import GetAllProviderUser from '../containers/GetAllProviderUser.js';
+import GetProviderUserById from '../containers/GetProviderUserById.js';
+import AddProviderUserTable from '../containers/AddProviderUserTable.js'
 
 
 class User extends Component {
@@ -56,6 +66,16 @@ class User extends Component {
             <AddProviderInfo />
             <UpdateProvider />
             <DeleteProvider />
+            <LinkProviderService />
+            <AddServicesOffered />
+            <UpdateServicesOffered />
+            <DeleteServicesOffered />
+            <BedTransaction />
+            <GetAllBedTransactions />
+            <GetAllBedTransactionsById />
+            <GetAllProviderUser />
+            <GetProviderUserById />
+            <AddProviderUserTable />
         </div>;
     }
 }

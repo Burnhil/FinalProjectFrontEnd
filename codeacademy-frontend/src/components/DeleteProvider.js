@@ -49,7 +49,7 @@ const DeleteProvider = (props) => {
                 </form>
                 
             </AccordionDetails>
-            {/**display new user info */}
+            {/**display deleted provider info */}
             {theDeletedProviderInfo}
         </Accordion>
     </div>;
