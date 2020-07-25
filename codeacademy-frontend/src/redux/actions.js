@@ -638,12 +638,25 @@ export const theResetPassword = (eventObj, theToken) => {
             .then(response => response.json())
             .then(resetingUserPassword => {
                 console.log(resetingUserPassword);
+                console.log(typeof resetingUserPassword.resetPasswordDoc);
+
+                let results = {};
+
+                if(typeof resetingUserPassword.resetPasswordDoc === 'undefined'){     
+                        results.resetPasswordDoc = resetingUserPassword.resetPasswordDoc;     
+                }else{
+                        results.message = resetingUserPassword; 
+                }
+
+
                 const action = {
                     type: "SET_RESETPASSWORD",
-                    value: resetingUserPassword.resetPasswordDoc,
+                    value: results,
                 }
                 dispatch(action);
-            });
+            }
+                
+    );
 
     }
 }

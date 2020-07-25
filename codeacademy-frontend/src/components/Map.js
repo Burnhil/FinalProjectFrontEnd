@@ -51,8 +51,44 @@ const TheMap = (props) => {
 
 
     //unable to use address to lat/lng conversion without key
-    Geocode.setApiKey();
+    Geocode.setApiKey("AIzaSyA3TCByfeoNvJ6xnJA7E1foMAeX5M3RhTA");
 
+    const theGeocode = () => {
+        for(let i = 0; i < providerInfo.length; i++) {
+
+            console.log("inside for loop!!!!!!!!!!!!!!!!!!!!!!");
+            console.log(props);
+            console.log(props.providerServiceInfo[i].OrganizationName);
+            //console.log(providerInfo);
+            //console.log(`Provider Info inside loop for address = ${providerInfo.Address}`);
+            //let address = providerInfo.Address;
+            //console.log(address);
+        
+            let eachAddress = props.providerServiceInfo[i].Address + " " + props.providerServiceInfo[i].City + "," +props.providerServiceInfo[i].State;
+            console.log(eachAddress);
+
+        Geocode.fromAddress(eachAddress).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location;
+                //console.log(" here is the possible conversion****************" + lat, lng);
+                // testData.homelat = lat;
+                // testData.homelng = lng;
+                let data = {
+                    homelat: lat,
+                    homelng: lng,
+                    //providers: testData.providers.push(providerInfo[i])
+                }
+                // setTestData(data);
+                console.log(data);
+            },
+            error => {
+                console.error(error);
+                //console.log("//////////////////looking here for info///////")
+            }
+        );
+        }
+
+    }
 
     useEffect(() => {
         //equivalent to componnendDidMount()
@@ -64,40 +100,12 @@ const TheMap = (props) => {
         // console.log(`this is the temp providerInfo = ${tempProviderInfo}`);
         // console.log(tempProviderInfo);
         // console.log(tempProviderInfo.Address)
-
-        for(let i = 0; i < providerInfo.length; i++) {
-
-            console.log("inside for loop!!!!!!!!!!!!!!!!!!!!!!");
-            console.log(providerInfo);
-            console.log(`Provider Info inside loop for address = ${providerInfo.Address}`);
-            let address = providerInfo.Address;
-            console.log(address);
+        theGeocode();
         
-            
-
-        // Geocode.fromAddress("14301 ortega Amarillo, Texas").then(
-        //     response => {
-        //         const { lat, lng } = response.results[0].geometry.location;
-        //         //console.log(" here is the possible conversion****************" + lat, lng);
-        //         // testData.homelat = lat;
-        //         // testData.homelng = lng;
-        //         let data = {
-        //             homelat: lat,
-        //             homelng: lng,
-        //             //providers: testData.providers.push(providerInfo[i])
-        //         }
-        //         setTestData(data);
-        //     },
-        //     error => {
-        //         console.error(error);
-        //         //console.log("//////////////////looking here for info///////")
-        //     }
-        // );
-        }
-    },[providerInfo, testData],[]);
+    },[]);
 
 
-    console.log(testData);
+    //console.log(testData);
 
     let mapInfo = (<GoogleMap defaultZoom={15}
         defaultCenter={{ lat: 35.207008, lng: -101.832008 }}>

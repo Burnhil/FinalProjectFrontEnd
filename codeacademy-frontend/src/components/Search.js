@@ -16,7 +16,7 @@ const Search = (props) => {
                     <Provider />
                 </Paper>
             </Grid>
-            <Grid item xs={5} >
+            <Grid item xs={7} >
                 <Paper >
                     <Map />
                 </Paper>

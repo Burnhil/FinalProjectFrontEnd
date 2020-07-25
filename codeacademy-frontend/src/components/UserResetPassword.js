@@ -5,15 +5,20 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 //reset user password
 const UserResetPassword = (props) => {
 
-    // console.log(props.token);
-    // console.log(props.resetPassword);
+    console.log(props.token);
+    console.log(props.resetPassword);
 
     let theResetPasswordInfo = [];
 
     //check to verify object to create jsx for reset password user information
     if(typeof props.resetPassword === 'object'){
      
-        theResetPasswordInfo = <div><Container>
+        if(props.resetPassword.resetPasswordDoc === undefined){
+            theResetPasswordInfo = <div><Container>
+                <h4>Password requirements not meet unable to process change.</h4>
+                </Container></div>
+        }else{
+            theResetPasswordInfo = <div><Container>
             <h4>The password information for the following profile has been reset.</h4>
             <ListItem><ListItemText primary={`User Id: ${props.resetPassword.UserId}`} /></ListItem>
             <ListItem><ListItemText primary={`First Name: ${props.resetPassword.FirstName}`}/></ListItem>
@@ -23,6 +28,9 @@ const UserResetPassword = (props) => {
             <ListItem><ListItemText primary={`Email: ${props.resetPassword.Email}`}/></ListItem>
         </Container>
         </div>
+        }
+
+        
      }
 
     return <div>

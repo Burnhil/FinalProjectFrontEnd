@@ -200,8 +200,9 @@ const resetPassword = (state = null, action) => {
         case "UNSET_RESETPASSWORD":
             return null;
         default:
+            return state;
     }
-    return state;
+    
 }
 
 //link user provider
