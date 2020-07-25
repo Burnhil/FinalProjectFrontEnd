@@ -39,44 +39,44 @@ export const theProviderUserTable = (eventObj, theToken) => {
                 }
                 dispatch(action);
             });
-    } 
+    }
 }
 
 
 //get provider user by id
 export const theGetProviderUserById = (eventObj, theToken) => {
 
-        //grab token 
-        let token = theToken;
-        //console.log(token);
-        eventObj.preventDefault();
-        //get provider id to use in url endpoint
-        let providerIDToFind = eventObj.target.providerid.value;
-        //set url endpoint with providerid
-        let providerUserUrl = "http://localhost:3000/providerusers/" + providerIDToFind;
+    //grab token 
+    let token = theToken;
+    //console.log(token);
+    eventObj.preventDefault();
+    //get provider id to use in url endpoint
+    let providerIDToFind = eventObj.target.providerid.value;
+    //set url endpoint with providerid
+    let providerUserUrl = "http://localhost:3000/providerusers/" + providerIDToFind;
 
-        //clear user input
-        eventObj.target.providerid.value = "";
+    //clear user input
+    eventObj.target.providerid.value = "";
 
-        return (dispatch) => {
-            //use fetch to get provider user information
-            fetch(providerUserUrl, {
-                method: 'get',
-                headers: {
-                    'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+    return (dispatch) => {
+        //use fetch to get provider user information
+        fetch(providerUserUrl, {
+            method: 'get',
+            headers: {
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            }
+        })
+            .then(response => response.json())
+            .then(providerUserDocs => {
+                //console.log(providerUserDocs);
+                //set state for all provider user information
+                const action = {
+                    type: "SET_GETPROVIDERUSERINFOBYID",
+                    value: providerUserDocs,
                 }
-            })
-                .then(response => response.json())
-                .then(providerUserDocs => {
-                    //console.log(providerUserDocs);
-                     //set state for all provider user information
-                    const action = {
-                        type: "SET_GETPROVIDERUSERINFOBYID",
-                        value: providerUserDocs,
-                    }
-                    dispatch(action);
-                });
-        }
+                dispatch(action);
+            });
+    }
 
 }
 
@@ -87,7 +87,7 @@ export const theGetAllProviderUserInfo = (eventObj, theToken) => {
     let token = theToken;
     //console.log(token);
     eventObj.preventDefault();
-    
+
     return (dispatch) => {
         //use fetch to get provider user information
         fetch("http://localhost:3000/providerusers", {
@@ -99,7 +99,7 @@ export const theGetAllProviderUserInfo = (eventObj, theToken) => {
             .then(response => response.json())
             .then(providerUserDoc => {
                 //console.log(providerUserDoc);
-                 //set state for all provider user information
+                //set state for all provider user information
                 const action = {
                     type: "SET_GETPROVIDERUSERINFO",
                     value: providerUserDoc,
@@ -135,7 +135,7 @@ export const theGetBedtransactionById = (eventObj, theToken) => {
             .then(response => response.json())
             .then(bedByIdData => {
                 //console.log(bedByIdData);
-                 //set all bed tranactions by Id
+                //set all bed tranactions by Id
                 const action = {
                     type: "SET_ALLBEDTRANSACTIONSBYID",
                     value: bedByIdData
@@ -153,50 +153,27 @@ export const theGetBedtransaction = (eventObj, theToken) => {
     let token = theToken;
     //console.log(token);
     eventObj.preventDefault();
-   
-       return (dispatch) => {
-           //use fetch to set allUserInfo into state
-           fetch("http://localhost:3000/bedtransactions", {
-               method: 'get',
-               headers: {
-                   'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
-               }
-           })
-               .then(response => response.json())
-               .then(bedData => {
-                   console.log(bedData);
-                    //set all bed tranactions
-                   const action = {
-                       type: "SET_GETBEDTRANSACTION",
-                       value: bedData
-                   }
-                   dispatch(action);
-               });
-       }
+
+    return (dispatch) => {
+        //use fetch to set allUserInfo into state
+        fetch("http://localhost:3000/bedtransactions", {
+            method: 'get',
+            headers: {
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            }
+        })
+            .then(response => response.json())
+            .then(bedData => {
+                console.log(bedData);
+                //set all bed tranactions
+                const action = {
+                    type: "SET_GETBEDTRANSACTION",
+                    value: bedData
+                }
+                dispatch(action);
+            });
+    }
 }
-
-
-//********************************************************************************************************************************** */
-//add bed transaction 
-export const theBedTransaction = (eventObj, theToken) => {
-    //grab token 
-    let token = theToken;
-    console.log(token);
-    eventObj.preventDefault();
-    console.log("hello from bed tranaction action file");
-
-    //grab the middle part of the token.
-    let authData = token.split('.')[1];
-    // JWTs are base64 encoded, so decode it.
-    let decodedAuthData = atob(authData);
-    // the decoded data should be a JSON object, so parse it as such.
-    let decodedAuthDataJSON = JSON.parse(decodedAuthData);
-    console.log(decodedAuthDataJSON);
-    let UpdatingUserID = decodedAuthDataJSON._Id;
-    console.log(UpdatingUserID);
-    
-}
-
 
 
 //delete service offered record
@@ -237,7 +214,7 @@ export const theDeleteServiceOffered = (eventObj, theToken) => {
 }
 
 
-
+//no longer needed moved to UpdateProviderBedTransaction.js
 //update services offered information 
 export const theUpdateServicesOffered = (eventObj, theToken) => {
     //grab token 
@@ -252,28 +229,28 @@ export const theUpdateServicesOffered = (eventObj, theToken) => {
 
     //add each item to credentials if needed
     if (eventObj.target.avaliablebeds.value !== 'null') {
-        credentials.AvaliableBeds = eventObj.target.avaliablebeds.value
+        credentials.AvaliableBeds = eventObj.target.avaliablebeds.value;
     }
     if (eventObj.target.totalbeds.value !== 'null') {
-        credentials.TotalBeds = eventObj.target.totalbeds.value
+        credentials.TotalBeds = eventObj.target.totalbeds.value;
     }
     if (eventObj.target.volunteeropportunities.value !== 'null') {
-        credentials.VolunteerOpportunities = eventObj.target.volunteeropportunities.value
+        credentials.VolunteerOpportunities = eventObj.target.volunteeropportunities.value;
     }
     if (eventObj.target.volunteersneeded.value !== 'null') {
-        credentials.VolunteersNeeded = eventObj.target.volunteersneeded.value
+        credentials.VolunteersNeeded = eventObj.target.volunteersneeded.value;
     }
     if (eventObj.target.servicetype.value !== 'null') {
-        credentials.ServiceType = eventObj.target.servicetype.value
+        credentials.ServiceType = eventObj.target.servicetype.value;
     }
     if (eventObj.target.servicedescription.value !== 'null') {
-        credentials.ServicesDescription = eventObj.target.servicedescription.value
+        credentials.ServicesDescription = eventObj.target.servicedescription.value;
     }
     if (eventObj.target.criteriaforservice.value !== 'null') {
-        credentials.CriteriaForService = eventObj.target.criteriaforservice.value
+        credentials.CriteriaForService = eventObj.target.criteriaforservice.value;
     }
     if (eventObj.target.warmingstation.value !== 'null') {
-        credentials.WarmingStation = eventObj.target.warmingstation.value
+        credentials.WarmingStation = eventObj.target.warmingstation.value;
     }
 
     //console.log(credentials)
@@ -282,6 +259,16 @@ export const theUpdateServicesOffered = (eventObj, theToken) => {
     let servicesOfferedIdToChange = eventObj.target.serviceofferedid.value;
     //set endpoint to be called for fetch
     let updateEndpointURL = "http://localhost:3000/servicesoffered/" + servicesOfferedIdToChange;
+
+    //clear user input
+    eventObj.target.avaliablebeds.value = "";
+    eventObj.target.totalbeds.value = "";
+    eventObj.target.volunteeropportunities.value = "";
+    eventObj.target.volunteersneeded.value = "";
+    eventObj.target.servicetype.value = "";
+    eventObj.target.servicedescription.value = "";
+    eventObj.target.criteriaforservice.value = "";
+    eventObj.target.warmingstation.value = "";
 
     //call fetch to endpoint
     return (dispatch) => {
@@ -462,28 +449,28 @@ export const theUpdateProviderInfo = (eventObj, theToken) => {
     }
 
     if (eventObj.target.providerid.value !== 'null') {
-        credentials.OrganizationName = eventObj.target.organizationname.value
+        credentials.OrganizationName = eventObj.target.organizationname.value;
     }
     if (eventObj.target.providerid.value !== 'null') {
-        credentials.Email = eventObj.target.email.value
+        credentials.Email = eventObj.target.email.value;
     }
     if (eventObj.target.providerid.value !== 'null') {
-        credentials.WebsiteInfo = eventObj.target.websiteinfo.value
+        credentials.WebsiteInfo = eventObj.target.websiteinfo.value;
     }
     if (eventObj.target.providerid.value !== 'null') {
-        credentials.PhoneNumber = eventObj.target.phonenumber.value
+        credentials.PhoneNumber = eventObj.target.phonenumber.value;
     }
     if (eventObj.target.providerid.value !== 'null') {
-        credentials.Address = eventObj.target.address.value
+        credentials.Address = eventObj.target.address.value;
     }
     if (eventObj.target.providerid.value !== 'null') {
-        credentials.City = eventObj.target.city.value
+        credentials.City = eventObj.target.city.value;
     }
     if (eventObj.target.providerid.value !== 'null') {
-        credentials.State = eventObj.target.state.value
+        credentials.State = eventObj.target.state.value;
     }
     if (eventObj.target.providerid.value !== 'null') {
-        credentials.County = eventObj.target.county.value
+        credentials.County = eventObj.target.county.value;
     }
 
     console.log(credentials)
@@ -493,6 +480,16 @@ export const theUpdateProviderInfo = (eventObj, theToken) => {
 
     let updateEndpointURL = "http://localhost:3000/providers/" + providerIdToChange;
     //console.log(updateEndpointURL)
+
+    //clear user input
+    eventObj.target.organizationname.value = "";
+    eventObj.target.email.value = "";
+    eventObj.target.websiteinfo.value = "";
+    eventObj.target.phonenumber.value = "";
+    eventObj.target.address.value = "";
+    eventObj.target.city.value = "";
+    eventObj.target.state.value = "";
+    eventObj.target.county.value = "";
 
     //create fetch to call update provider endpoint in database
     return (dispatch) => {
@@ -540,6 +537,16 @@ export const theAddProviderInfo = (eventObj, theToken) => {
         State: eventObj.target.state.value,
         County: eventObj.target.county.value,
     }
+
+    //clear user data
+    eventObj.target.organizationname.value = "";
+    eventObj.target.email.value = "";
+    eventObj.target.websiteinfo.value = "";
+    eventObj.target.phonenumber.value = "";
+    eventObj.target.address.value = "";
+    eventObj.target.city.value = "";
+    eventObj.target.state.value = "";
+    eventObj.target.county.value = "";
 
     return (dispatch) => {
 
@@ -615,6 +622,9 @@ export const theResetPassword = (eventObj, theToken) => {
     let theUser = eventObj.target.userid.value;
     let updateEndpointURL = "http://localhost:3000/users/resetpassword/" + theUser;
 
+    //clear user data
+    eventObj.target.newpassword.value = "";
+
     return (dispatch) => {
         fetch(updateEndpointURL, {
             method: 'put',
@@ -655,6 +665,10 @@ export const theLinkUserProvider = (eventObj, theToken) => {
         _id: theProvider,
     }
 
+    //clear user data
+    eventObj.target.userid.value = "";
+    eventObj.target.providerid.value = "";
+
     //create fetch statement to link user provider information
     return (dispatch) => {
         fetch(updateEndpointURL, {
@@ -694,6 +708,9 @@ export const theDeleteUserInfo = (eventObj, theToken) => {
     let updateEndpointURL = "http://localhost:3000/users/" + userIdToDelete;
     //console.log(updateEndpointURL)
 
+    //clear user data
+    eventObj.target.userid.value = "";
+
     //create fetch to call delete user endpoint in database
     return (dispatch) => {
         fetch(updateEndpointURL, {
@@ -731,7 +748,7 @@ export const theUpdateUserInfo = (eventObj, theToken) => {
     }
     //create credential object
     if (eventObj.target.firstname.value !== 'null') {
-        credentials.FirstName = eventObj.target.lastname.value;
+        credentials.FirstName = eventObj.target.firstname.value;
     }
     if (eventObj.target.lastname.value !== 'null') {
         credentials.LastName = eventObj.target.lastname.value;
@@ -753,6 +770,15 @@ export const theUpdateUserInfo = (eventObj, theToken) => {
 
     let updateEndpointURL = "http://localhost:3000/users/" + userIdToChange;
     //console.log(updateEndpointURL)
+
+    //clear user input
+    eventObj.target.firstname.value = "";
+    eventObj.target.lastname.value = "";
+    eventObj.target.organization.value = "";
+    eventObj.target.phonenumber.value = "";
+    eventObj.target.email.value = "";
+    eventObj.target.usertype.value = "";
+
 
     //create fetch to call update user endpoint in database
     return (dispatch) => {
@@ -812,6 +838,16 @@ export const theCreateUser = (eventObj, theToken) => {
         UserPassword: UserPassword
     }
 
+    // clear user input
+    eventObj.target.firstname.value = "";
+    eventObj.target.lastname.value = "";
+    eventObj.target.organization.value = "";
+    eventObj.target.phonenumber.value = "";
+    eventObj.target.email.value = "";
+    eventObj.target.usertype.value = "";
+    eventObj.target.userid.value = "";
+    eventObj.target.userpassword.value = "";
+
     return (dispatch) => {
         fetch("http://localhost:3000/users", {
             method: 'post',
@@ -849,6 +885,9 @@ export const setUserById = (eventObj, theToken) => {
     let userIdEndpoint = "http://localhost:3000/users/" + theUserId;
     //console.log(`the user id plus endpoint are = ${userIdEndpoint}`);
     //console.log(typeof userIdEndpoint)
+
+    //clear user input
+    eventObj.target.userid.value = "";
 
     return (dispatch) => {
         fetch(userIdEndpoint, {
@@ -918,6 +957,10 @@ export const setToken = (eventObj) => {
             UserId: theUsername,
             UserPassword: thePassword
         }
+
+        //clear user input
+        eventObj.target.userid.value = "";
+        eventObj.target.password.value = "";
 
         fetch("http://localhost:3000/users/authenticate ", {
             method: 'post',
@@ -995,6 +1038,7 @@ export const setServiceInfo = () => {
 }
 
 export const setProviderServiceInfo = () => {
+    
     return (dispatch) => {
         fetch("http://localhost:3000/providers")
             .then((response) => response.json())
@@ -1046,6 +1090,71 @@ export const setProviderServiceInfo = () => {
 
                         const action = {
                             type: "SET_SERVICE_PROVIDER_INFO",
+                            value: providerServiceInfo,
+
+                        }
+                        dispatch(action);
+
+                    })
+            });
+    }
+}
+
+
+//get provider services offered info for admin/users page
+export const setProviderServiceInfo2 = (eventObj) => {
+    eventObj.preventDefault();
+    return (dispatch) => {
+        fetch("http://localhost:3000/providers")
+            .then((response) => response.json())
+            .then((theData) => {
+                //console.log(theData);   //testing data coming from provider endpoint
+
+                let secondURL = "http://localhost:3000/servicesoffered/";
+                fetch(secondURL)
+                    .then((responseToAdd) => responseToAdd.json())
+                    .then(theSecondData => {
+                        //console.log(theSecondData);  //testing data coming from services offered endpoint
+
+                        //combine the providerinfo and serviceoffered 
+                        let providerServiceInfo = [];   //create array to combine info into
+                        //loop over each array and match by id
+                        for (let k = 0; k < theData.length; k++) {
+                            for (let i = 0; i < theSecondData.length; i++) {
+                                //console.log("we are here");  //testing data             
+                                if (theData[k].TheServicesOfferedId[0] === theSecondData[i]._id) {
+                                    //testing data to verify matching id's for provider/services offered
+                                    //console.log(`this is the provider = ${theData[k].TheServicesOfferedId[0]} this is the serviceoffered = ${theSecondData[i]._id}`)
+
+                                    //create new object to store both provider and services offered info
+                                    providerServiceInfo[k] = {
+                                        //key data from providerInfo array
+                                        Provider_id: theData[k]._id,
+                                        OrganizationName: theData[k].OrganizationName,
+                                        Address: theData[k].Address,
+                                        City: theData[k].City,
+                                        County: theData[k].County,
+                                        State: theData[k].State,
+                                        Email: theData[k].Email,
+                                        PhoneNumber: theData[k].PhoneNumber,
+                                        WebsiteInfo: theData[k].WebsiteInfo,
+                                        //key data from serviceInfo array
+                                        TheServicesOfferedId: theSecondData[i]._id,
+                                        CriteriaForService: theSecondData[i].CriteriaForService,
+                                        AvaliableBeds: theSecondData[i].AvaliableBeds,
+                                        TotalBeds: theSecondData[i].TotalBeds,
+                                        ServiceType: theSecondData[i].ServiceType,
+                                        ServicesDescription: theSecondData[i].ServicesDescription,
+                                        VolunteerOpportunities: theSecondData[i].VolunteerOpportunities,
+                                        VolunteersNeeded: theSecondData[i].VolunteersNeeded,
+                                        WarmingStation: theSecondData[i].WarmingStation,
+                                    }
+                                }
+                            }
+                        }
+
+                        const action = {
+                            type: "SET_ADMINPROVIDERUSERINFO",
                             value: providerServiceInfo,
 
                         }

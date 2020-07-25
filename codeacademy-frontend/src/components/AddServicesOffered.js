@@ -39,7 +39,7 @@ const AddServicesOffered = (props) => {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >                    <div >
-                    <Typography variant="h6">Add Services Offered Info</Typography>
+                    <Typography variant="h6">Add Services Offered Information</Typography>
                 </div>
             </AccordionSummary>
             <AccordionDetails>

@@ -12,20 +12,18 @@ import UpdateProvider from '../containers/UpdateProvider.js';
 import DeleteProvider from '../containers/DeleteProvider.js';
 import LinkProviderService from '../containers/LinkProviderService.js';
 import AddServicesOffered from '../containers/AddServicesOffered.js';
-import UpdateServicesOffered from '../containers/UpdateServicesOffered.js';
 import DeleteServicesOffered from '../containers/DeleteServicesOffered.js';
-import BedTransaction from '../containers/BedTransaction.js';
 import GetAllBedTransactions from '../containers/GetAllBedTransactions.js';
 import GetAllBedTransactionsById from '../containers/GetAllBedTransactionsById.js';
 import GetAllProviderUser from '../containers/GetAllProviderUser.js';
 import GetProviderUserById from '../containers/GetProviderUserById.js';
-import AddProviderUserTable from '../containers/AddProviderUserTable.js'
+import AddProviderUserTable from '../containers/AddProviderUserTable.js';
+import UpdateProviderBedTransaction from '../containers/UpdateProviderBedTransaction.js';
+import GetProvidersServicesOfferedInfo from '../containers/GetProvidersServicesOfferedInfo.js';
 
 
 class User extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+
 
     parseJWT = (token) => {
         //grab the middle part of the token.
@@ -40,43 +38,69 @@ class User extends Component {
     }
 
     render() {
-        // console.log(`this is inside users with token = ${this.props.token}`)
-        // console.log(this.props.token);
-        // let authorizedUser = this.parseJWT(this.props.token);
-        // console.log(authorizedUser);
-        // console.log(authorizedUser.UserType)
+        //console.log(`this is inside users with token = ${this.props.token}`)
+        //console.log(this.props.token);
+        let authorizedUser = this.parseJWT(this.props.token);
+        //console.log(authorizedUser);
+        //console.log(authorizedUser.UserType)
+        let userRights = authorizedUser.UserType;
+        console.log(userRights);
+
+
+        let userRightJSX = [];
 
         // //verify userType to show user only components to modify
-        // if(authorizedUser.UserType === "Admin"){
+        if (authorizedUser.UserType === "Admin") {
+            userRightJSX = <div>
+                
+                
+                <CreateUser />
+                <UserUpdate />
+                <DeleteUser />
+                
+                <UserResetPassword />
+                <DisableUserAccount />
+                <h3>Provider and Service Offered Options</h3>
 
-        // }else{
+                <AddProviderInfo />
+                <LinkUserProvider />
+                <UpdateProvider />
+                <DeleteProvider />
+                
+                <AddServicesOffered />
+                <LinkProviderService />
 
-        // }
+                <DeleteServicesOffered />
+                <UpdateProviderBedTransaction />
+                <AddProviderUserTable />
+                <h3>Reporting Features</h3>
+                <UserDB />
+                
 
 
-        return <div><h1>User access below:</h1>
-            <UserDB />
-            <UserId />
-            <CreateUser />
-            <UserUpdate />
-            <DeleteUser />
-            <LinkUserProvider />
-            <UserResetPassword />
-            <DisableUserAccount />
-            <AddProviderInfo />
-            <UpdateProvider />
-            <DeleteProvider />
-            <LinkProviderService />
-            <AddServicesOffered />
-            <UpdateServicesOffered />
-            <DeleteServicesOffered />
-            <BedTransaction />
-            <GetAllBedTransactions />
-            <GetAllBedTransactionsById />
-            <GetAllProviderUser />
-            <GetProviderUserById />
-            <AddProviderUserTable />
-        </div>;
+                <GetProvidersServicesOfferedInfo />
+                
+                <UserId />
+                <GetAllBedTransactions />
+                
+                <GetAllBedTransactionsById />
+                <GetAllProviderUser />
+                <GetProviderUserById />
+                
+            </div>
+        } else {
+            userRightJSX = <div className="userAccess">
+                <AddServicesOffered />
+                <LinkProviderService />
+                <UpdateProvider />
+                <UpdateProviderBedTransaction /> 
+                <GetProvidersServicesOfferedInfo />
+            </div>
+            
+        }
+
+
+        return <div><h3>User Access Page</h3>{userRightJSX}</div>;
     }
 }
 

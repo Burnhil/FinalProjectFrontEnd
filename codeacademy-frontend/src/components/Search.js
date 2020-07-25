@@ -9,15 +9,15 @@ const Search = (props) => {
             container
             direction="row"
             justify="left"
-            spacing="2"
+            spacing="1"
         >
-            <Grid item >
-                <Paper xs={4}>
+            <Grid item xs={5}>
+                <Paper >
                     <Provider />
                 </Paper>
             </Grid>
-            <Grid item >
-                <Paper xs={4}>
+            <Grid item xs={5} >
+                <Paper >
                     <Map />
                 </Paper>
             </Grid>

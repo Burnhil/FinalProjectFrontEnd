@@ -37,17 +37,16 @@ class Provider extends Component {
                     >
                         <div >
                             <Typography variant="h6">{this.props.providerServiceInfo[i].OrganizationName} </Typography>
-                       <li><Typography  >Beds Avaliable: {this.props.providerServiceInfo[i].AvaliableBeds}</Typography></li>
-                       <li><Typography>Warming Station: {this.props.providerServiceInfo[i].WarmingStation}</Typography></li>
-                            
-                            </div>
-                    
+                            <Typography  >Beds Avaliable: {this.props.providerServiceInfo[i].AvaliableBeds}</Typography>
+                            <Typography>Warming Station: {this.props.providerServiceInfo[i].WarmingStation}</Typography>
+
+                        </div>
                     </AccordionSummary>
                     <AccordionDetails>
                         <Typography>
                             <h5>Contact Info:</h5>
                             <ul>
-                            <li>Phone Number:{this.props.providerServiceInfo[i].PhoneNumber}</li>
+                                <li>Phone Number:{this.props.providerServiceInfo[i].PhoneNumber}</li>
                                 <li>Address: {this.props.providerServiceInfo[i].Address}</li>
                                 <li>Email: {this.props.providerServiceInfo[i].Email}</li>
                                 <li>Service Type:{this.props.providerServiceInfo[i].ServiceType}</li>
@@ -59,7 +58,7 @@ class Provider extends Component {
                     </AccordionDetails>
                 </Accordion>);
             }
-            
+
 
 
             return (

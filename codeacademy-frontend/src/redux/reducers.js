@@ -1,5 +1,17 @@
 import { combineReducers } from 'redux';
 
+//provider offered services info for admin use
+const adminProviderServiceInfo = (state = null, action) => {
+    switch(action.type) {
+        case "SET_ADMINPROVIDERUSERINFO":
+            return action.value;
+        case "UNSET_ADMINPROVIDERUSERINFO":
+            return null;
+        default:
+    }
+    return state;
+}
+
 //link provider user together in database table for data collection
 const linkProviderUser = (state = null, action) => {
     switch(action.type) {
@@ -310,4 +322,5 @@ const providerServiceInfo = (state = [], action) => {
 export default combineReducers({ providerInfo, serviceInfo, providerServiceInfo, token, allUserInfo, 
     userById, createUserInfo, updateUserInfo, deleteUserInfo, linkUserProvider, resetPassword, disableUserAccount, addProviderInfo,
     updateProviderInfo, deleteProviderInfo, linkProviderService, addServicesOffered, updateServicesOfferedInfo, deleteServicesOffered, 
-    addBedTransaction, getBedTransaction, getAllBedTransactionsById, getProviderUsersInfo, getProviderUsersById, linkProviderUser });
+    addBedTransaction, getBedTransaction, getAllBedTransactionsById, getProviderUsersInfo, getProviderUsersById, linkProviderUser,
+    adminProviderServiceInfo });

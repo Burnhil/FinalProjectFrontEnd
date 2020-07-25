@@ -24,7 +24,7 @@ const LinkProviderService = (props) => {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >                    <div >
-                    <Typography variant="h6">Link Provider to ServicesOffered</Typography>
+                    <Typography variant="h6">Link Provider to Services Offered</Typography>
                 </div>
             </AccordionSummary>
             <AccordionDetails>

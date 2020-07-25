@@ -4,7 +4,10 @@
 .App {
   text-align: center;
   background-color: #C2DFE3;
+  margin: auto;
+  padding: 2%;
 }
+
 
 .logo {
   align-self: left;
@@ -23,9 +26,15 @@
 .loginForm {
   margin: auto;
   padding: 15px;
+  padding-top: 10%;
+  padding-bottom: 25%;
   font-size: large;
   border-style: double;
   border-width: 4px;
+}
+
+.userAccess {
+  margin-bottom: 21%;
 }
 
 .missionStatement {
