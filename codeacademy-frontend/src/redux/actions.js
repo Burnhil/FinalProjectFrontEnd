@@ -1,5 +1,6 @@
 
-
+//updated theproviderusertable action is not longer used converted it with action
+//theLinkUserProvider
 //link provider user together in database table for reports
 export const theProviderUserTable = (eventObj, theToken) => {
 
@@ -640,18 +641,10 @@ export const theResetPassword = (eventObj, theToken) => {
                 console.log(resetingUserPassword);
                 console.log(typeof resetingUserPassword.resetPasswordDoc);
 
-                let results = {};
-
-                if(typeof resetingUserPassword.resetPasswordDoc === 'undefined'){     
-                        results.resetPasswordDoc = resetingUserPassword.resetPasswordDoc;     
-                }else{
-                        results.message = resetingUserPassword; 
-                }
-
 
                 const action = {
                     type: "SET_RESETPASSWORD",
-                    value: results,
+                    value: resetingUserPassword,
                 }
                 dispatch(action);
             }
@@ -672,11 +665,33 @@ export const theLinkUserProvider = (eventObj, theToken) => {
     let theUser = eventObj.target.userid.value;
     let theProvider = eventObj.target.providerid.value;
 
+    //create endpoint and credentials for fetch
     let updateEndpointURL = "http://localhost:3000/users/link/" + theUser;
 
     let credentials = {
         _id: theProvider,
     }
+
+    //create credentials to be used to add user and provider to linking table for reportinng
+    let credentialsAddToTable = {
+        ProviderId: eventObj.target.providerid.value,
+        UserId: eventObj.target.userid.value,
+    }
+    //create the process of linking user provider 
+    fetch("http://localhost:3000/providerusers", {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+            },
+            body: JSON.stringify(credentialsAddToTable),
+        })
+            .then(response => response.json())
+            .then(providerUserTable => {
+                console.log(providerUserTable); 
+                //store provider user table info in state
+            });
 
     //clear user data
     eventObj.target.userid.value = "";

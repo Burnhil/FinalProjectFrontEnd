@@ -67,3 +67,7 @@
   align-self: flex-end;
   font-size: medium;
 }
+
+.adminHeaders {
+  text-size-adjust: bold;
+}

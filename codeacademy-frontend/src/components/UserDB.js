@@ -31,8 +31,8 @@ const UserDB = (props) => {
             </AccordionDetails>
             {/**create accordian details by mapping over allUserInfo */}
             <AccordionDetails>
-            <Container>
-            <Table>
+           
+            <Table >
                 <TableHead>
                     <TableCell>First Name</TableCell>
                     <TableCell>Last Name</TableCell>
@@ -69,7 +69,7 @@ const UserDB = (props) => {
 
                 </TableBody>
             </Table>
-            </Container>
+            
             </AccordionDetails>
         </Accordion>
 

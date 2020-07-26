@@ -17,7 +17,7 @@ const GetProviderUserById = (props) => {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >                    <div >
-                    <Typography variant="h6">View all Users for Provider</Typography>
+                    <Typography variant="h6">View all Users for Provider by Id</Typography>
                 </div>
             </AccordionSummary>
             {/**create button to pull all provider users by id information*/}
@@ -31,7 +31,7 @@ const GetProviderUserById = (props) => {
             </AccordionDetails>
             {/**create provider user id table */}
             <AccordionDetails>
-                <Container>
+                
                     <Table>
                         <TableHead>
                             <TableCell>Record Id</TableCell>
@@ -49,7 +49,7 @@ const GetProviderUserById = (props) => {
 
                         </TableBody>
                     </Table>
-                </Container>
+                
             </AccordionDetails>
         </Accordion>
 

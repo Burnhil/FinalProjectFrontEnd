@@ -180,8 +180,8 @@ class UpdateProviderBedTransaction extends Component {
             //create jsw list
             theUpdateServicesOfferedInfo = <div><Container>
                 <h4>The following Services Offered has been added:</h4>
-                <ListItem><ListItemText primary={`Id: ${currentAvaliableBedCount}`} /></ListItem>
-                <ListItem><ListItemText primary={`Avaliable Beds: ${this.state.theUpdatedServiceDoc.AvaliableBeds}`} /></ListItem>
+                <ListItem><ListItemText primary={`Id: ${this.state.theUpdatedServiceDoc._id}`} /></ListItem>
+                <ListItem><ListItemText primary={`Avaliable Beds: ${currentAvaliableBedCount}`} /></ListItem>
                 <ListItem><ListItemText primary={`Total Beds: ${this.state.theUpdatedServiceDoc.TotalBeds}`} /></ListItem>
                 <ListItem><ListItemText primary={`Volunteer Opportunities: ${this.state.theUpdatedServiceDoc.VolunteerOpportunities}`} /></ListItem>
                 <ListItem><ListItemText primary={`Volunteers Needed: ${this.state.theUpdatedServiceDoc.VolunteersNeeded}`} /></ListItem>

@@ -17,7 +17,7 @@ import GetAllBedTransactions from '../containers/GetAllBedTransactions.js';
 import GetAllBedTransactionsById from '../containers/GetAllBedTransactionsById.js';
 import GetAllProviderUser from '../containers/GetAllProviderUser.js';
 import GetProviderUserById from '../containers/GetProviderUserById.js';
-import AddProviderUserTable from '../containers/AddProviderUserTable.js';
+
 import UpdateProviderBedTransaction from '../containers/UpdateProviderBedTransaction.js';
 import GetProvidersServicesOfferedInfo from '../containers/GetProvidersServicesOfferedInfo.js';
 
@@ -52,37 +52,28 @@ class User extends Component {
         // //verify userType to show user only components to modify
         if (authorizedUser.UserType === "Admin") {
             userRightJSX = <div>
-                
-                
                 <CreateUser />
                 <UserUpdate />
-                <DeleteUser />
-                
+                <DeleteUser /> 
                 <UserResetPassword />
                 <DisableUserAccount />
-                <h3>Provider and Service Offered Options</h3>
 
+                <h3>Provider and Service Offered Options</h3>
                 <AddProviderInfo />
                 <LinkUserProvider />
                 <UpdateProvider />
-                <DeleteProvider />
-                
+                <DeleteProvider />               
                 <AddServicesOffered />
                 <LinkProviderService />
-
                 <DeleteServicesOffered />
                 <UpdateProviderBedTransaction />
-                <AddProviderUserTable />
+                
+
                 <h3>Reporting Features</h3>
                 <UserDB />
-                
-
-
-                <GetProvidersServicesOfferedInfo />
-                
                 <UserId />
-                <GetAllBedTransactions />
-                
+                <GetProvidersServicesOfferedInfo />   
+                <GetAllBedTransactions />              
                 <GetAllBedTransactionsById />
                 <GetAllProviderUser />
                 <GetProviderUserById />

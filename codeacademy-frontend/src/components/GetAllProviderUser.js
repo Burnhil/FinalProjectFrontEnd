@@ -30,7 +30,7 @@ const GetAllProviderUser = (props) => {
             </AccordionDetails>
             {/**create provider user table */}
          <AccordionDetails>
-            <Container>
+            
             <Table>
                 <TableHead>
                     <TableCell>Record Id</TableCell>
@@ -48,7 +48,7 @@ const GetAllProviderUser = (props) => {
 
                 </TableBody>
             </Table>
-            </Container>
+           
             </AccordionDetails>
         </Accordion>
 

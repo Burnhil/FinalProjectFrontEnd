@@ -13,19 +13,21 @@ const UserResetPassword = (props) => {
     //check to verify object to create jsx for reset password user information
     if(typeof props.resetPassword === 'object'){
      
+        //if no resetPasswordDoc then return error message for password requirements
         if(props.resetPassword.resetPasswordDoc === undefined){
             theResetPasswordInfo = <div><Container>
                 <h4>Password requirements not meet unable to process change.</h4>
                 </Container></div>
         }else{
+            //if resetPasswordDoc if availiable password update was successful send back user info updated
             theResetPasswordInfo = <div><Container>
             <h4>The password information for the following profile has been reset.</h4>
-            <ListItem><ListItemText primary={`User Id: ${props.resetPassword.UserId}`} /></ListItem>
-            <ListItem><ListItemText primary={`First Name: ${props.resetPassword.FirstName}`}/></ListItem>
-            <ListItem><ListItemText primary={`Last Name: ${props.resetPassword.LastName}`} /></ListItem>
-            <ListItem><ListItemText primary={`Organization: ${props.resetPassword.Organization}`} /></ListItem>
-            <ListItem><ListItemText primary={`Phone Number: ${props.resetPassword.PhoneNumber}`} /></ListItem>
-            <ListItem><ListItemText primary={`Email: ${props.resetPassword.Email}`}/></ListItem>
+            <ListItem><ListItemText primary={`User Id: ${props.resetPassword.resetPasswordDoc.UserId}`} /></ListItem>
+            <ListItem><ListItemText primary={`First Name: ${props.resetPassword.resetPasswordDoc.FirstName}`}/></ListItem>
+            <ListItem><ListItemText primary={`Last Name: ${props.resetPassword.resetPasswordDoc.LastName}`} /></ListItem>
+            <ListItem><ListItemText primary={`Organization: ${props.resetPassword.resetPasswordDoc.Organization}`} /></ListItem>
+            <ListItem><ListItemText primary={`Phone Number: ${props.resetPassword.resetPasswordDoc.PhoneNumber}`} /></ListItem>
+            <ListItem><ListItemText primary={`Email: ${props.resetPassword.resetPasswordDoc.Email}`}/></ListItem>
         </Container>
         </div>
         }

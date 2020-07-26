@@ -7,7 +7,7 @@ const GetAllBedTransactions = (props) => {
 
     //testing console output
     // console.log(props.token);
-    // console.log(props.getBedTransaction);
+    console.log(props.getBedTransaction);
     
     //create accordian with button to view all bed transactions
     return <div>
@@ -30,7 +30,7 @@ const GetAllBedTransactions = (props) => {
             </AccordionDetails>
             {/**create bed transaction talbe */}
          <AccordionDetails>
-            <Container>
+            
             <Table>
                 <TableHead>
                     <TableCell>Current Bed Count</TableCell>
@@ -54,7 +54,7 @@ const GetAllBedTransactions = (props) => {
 
                 </TableBody>
             </Table>
-            </Container>
+            
             </AccordionDetails>
         </Accordion>
 

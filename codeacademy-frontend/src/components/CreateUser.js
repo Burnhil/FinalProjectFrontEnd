@@ -23,7 +23,7 @@ const CreateUser = (props) => {
     //start building jsx to display new user results 
     if(typeof props.createUserInfo === 'object'){
      
-    theCreatedUserInfo = <div><Container>
+    theCreatedUserInfo = <div>
         <h4>The following profile has been added:</h4>
         <ListItem><ListItemText primary={`First Name: ${props.createUserInfo.newUser.FirstName}`} /></ListItem>
         <ListItem><ListItemText primary={`Last Name: ${props.createUserInfo.newUser.LastName}`} /></ListItem>
@@ -33,7 +33,7 @@ const CreateUser = (props) => {
         <ListItem><ListItemText primary={`User Type: ${props.createUserInfo.newUser.UserType}`} /></ListItem>
         <ListItem><ListItemText primary={`User Id: ${props.createUserInfo.newUser.UserId}`}/></ListItem>
         <ListItem><ListItemText primary={`Id: ${props.createUserInfo.newUser._id}`}/></ListItem>  
-    </Container>
+    
     </div>
     }
     }

@@ -30,7 +30,7 @@ const GetProvidersServicesOfferedInfo = (props) => {
             </AccordionDetails>
             {/**create provider with serviceoffered details */}
          <AccordionDetails>
-            <Container>
+            
             <Table>
                 <TableHead>
                     <TableCell>Organization</TableCell>
@@ -42,10 +42,10 @@ const GetProvidersServicesOfferedInfo = (props) => {
                     <TableCell>Email</TableCell>
                     <TableCell>WebSite</TableCell>
                     <TableCell>Criteria for Service</TableCell>
-                    <TableCell>Service Type</TableCell>
-                    <TableCell>Service Description</TableCell>
+                    {/* <TableCell>Service Type</TableCell>
+                    <TableCell>Service Description</TableCell> */}
                     <TableCell>Avaliable Beds</TableCell>
-                    <TableCell>Total Beds</TableCell>
+                    {/* <TableCell>Total Beds</TableCell> */}
                     <TableCell>Volunteers Opportunities</TableCell>
                     <TableCell>Volunteers Needed</TableCell>
                     <TableCell>Warming Station</TableCell>
@@ -65,10 +65,10 @@ const GetProvidersServicesOfferedInfo = (props) => {
                             <TableCell>{row["Email"]}</TableCell>
                             <TableCell>{row["WebsiteInfo"]}</TableCell>
                             <TableCell>{row["CriteriaForService"]}</TableCell>
-                            <TableCell>{row["ServiceType"]}</TableCell>
-                            <TableCell>{row["ServicesDescription"]}</TableCell>
+                            {/* <TableCell>{row["ServiceType"]}</TableCell>
+                            <TableCell>{row["ServicesDescription"]}</TableCell> */}
                             <TableCell>{row["AvaliableBeds"]}</TableCell>
-                            <TableCell>{row["TotalBeds"]}</TableCell>
+                            {/* <TableCell>{row["TotalBeds"]}</TableCell> */}
                             <TableCell>{row["VolunteerOpportunities"]}</TableCell>
                             <TableCell>{row["VolunteersNeeded"]}</TableCell>
                             <TableCell>{row["WarmingStation"]}</TableCell>
@@ -79,7 +79,7 @@ const GetProvidersServicesOfferedInfo = (props) => {
 
                 </TableBody>
             </Table>
-            </Container>
+            
             </AccordionDetails>
         </Accordion>
 

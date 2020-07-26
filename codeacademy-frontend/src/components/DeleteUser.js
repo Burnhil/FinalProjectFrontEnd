@@ -12,7 +12,7 @@ const DeleteUser = (props) => {
 
     if(typeof props.deleteUserInfo === 'object'){
      
-        theDeletedUserInfo  = <div><Container>
+        theDeletedUserInfo  = <div>
             <h4>The following profile has been deleted:</h4>
             <ListItem><ListItemText primary={`First Name: ${props.deleteUserInfo.FirstName}`} /></ListItem>
             <ListItem><ListItemText primary={`Last Name: ${props.deleteUserInfo.LastName}`} /></ListItem>
@@ -22,7 +22,7 @@ const DeleteUser = (props) => {
             <ListItem><ListItemText primary={`User Type: ${props.deleteUserInfo.UserType}`} /></ListItem>
             <ListItem><ListItemText primary={`User Id: ${props.deleteUserInfo.UserId}`}/></ListItem>
             <ListItem><ListItemText primary={`Id: ${props.deleteUserInfo._id}`}/></ListItem>  
-        </Container>
+       
         </div>
         }
 

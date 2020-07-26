@@ -31,7 +31,7 @@ const GetAllBedTransactionsById = (props) => {
             </AccordionDetails>
             {/**create bed transaction table */}
             <AccordionDetails>
-                <Container>
+                
                     <Table>
                         <TableHead>
                             <TableCell>Current Bed Count</TableCell>
@@ -54,7 +54,7 @@ const GetAllBedTransactionsById = (props) => {
                             ))}
                         </TableBody>
                     </Table>
-                </Container>
+                
             </AccordionDetails>
         </Accordion>
 

@@ -16,7 +16,7 @@ const UserUpdate = (props) => {
     //check to verify object to create jsx
     if(typeof props.updateUserInfo === 'object'){
      
-        theUpdatedUserInfo = <div><Container>
+        theUpdatedUserInfo = <div>
             <h4>The following profile has been updated:</h4>
             <ListItem><ListItemText primary={`First Name: ${props.updateUserInfo.FirstName}`} /></ListItem>
             <ListItem><ListItemText primary={`Last Name: ${props.updateUserInfo.LastName}`} /></ListItem>
@@ -24,7 +24,7 @@ const UserUpdate = (props) => {
             <ListItem><ListItemText primary={`Phone Number: ${props.updateUserInfo.PhoneNumber}`} /></ListItem>
             <ListItem><ListItemText primary={`Email: ${props.updateUserInfo.Email}`}/></ListItem>
             <ListItem><ListItemText primary={`User Type: ${props.updateUserInfo.UserType}`} /></ListItem>
-        </Container>
+        
         </div>
      }
         

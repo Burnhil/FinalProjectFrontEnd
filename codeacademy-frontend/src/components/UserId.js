@@ -20,7 +20,7 @@ const UserId = (props) => {
         if (typeof props.userById === 'object') {
 
             theUserById = <div>
-                <Container>
+                
 
                     <ListItem><ListItemText primary={`Id: ${props.userById._id}`} /></ListItem>
                     <ListItem><ListItemText primary={`UserID: ${props.userById.UserId}`} /></ListItem>
@@ -33,7 +33,7 @@ const UserId = (props) => {
                     <ListItem><ListItemText primary={`Changed By: ${props.userById.ChangedBy}`} /></ListItem>
                     <ListItem><ListItemText primary={`Changed By Date: ${props.userById.ChangedDateTime}`} /></ListItem>
 
-                </Container>
+         
             </div>
         }
 
