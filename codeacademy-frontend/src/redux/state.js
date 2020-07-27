@@ -2,7 +2,7 @@
 
 export default {
    
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfSWQiOiI1ZWMxYjg3MTJkOWVhNjJjZTRlMjg0YjQiLCJVc2VySWQiOiJBY0FkbWluIiwiVXNlclR5cGUiOiJBZG1pbiIsIkZpcnN0TmFtZSI6IkFkbWluIiwiTGFzdE5hbWUiOiJVc2VyIiwiT3JnYW5pemF0aW9uIjoiQW1hcmlsbG9Db2xsZWdlIiwiUGhvbmVOdW1iZXIiOiI4MDYtMzcxLTUwMDAiLCJFbWFpbCI6ImFza2FjQGFjdHguZWR1IiwiTGFzdExvZ2luIjoiMjAyMC0wNy0yNVQxNzowNzoyOS4wMDBaIiwiRGlzYWJsZWQiOmZhbHNlLCJpYXQiOjE1OTU2OTY4NTB9.U9S46dFyWc8wRwFZg5G696kGCOnmMPk27yTsnP_GSCg",
+    token: null,
     providerInfo: [],
     serviceInfo: [],
     providerServiceInfo: [],

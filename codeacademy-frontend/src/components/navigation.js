@@ -17,7 +17,7 @@ const Navigation = () => {
                 <Grid className="logo"><img src={require("../pictures/logodemo.jpg")} alt="testing" width="150" height="125"></img></Grid>
                 <Grid container justify="flex-end" spacing={10}>
                     <Grid item ><Link to="/" className="toolBar">Home</Link> </Grid>
-                    <Grid item ><Link to="/search" className="toolBar">See Locations</Link> </Grid>
+                    <Grid item ><Link to="/locations" className="toolBar">See Locations</Link> </Grid>
                     <Grid item ><Link to="/user" className="toolBar">User</Link> </Grid>
                     <Grid item ><Link to="/login" className="toolBar">Login</Link> </Grid>
                     
@@ -26,7 +26,7 @@ const Navigation = () => {
 
         </AppBar>
         <Route exact path="/" component={Home} />
-        <Route path="/search" component={Search} />
+        <Route path="/locations" component={Search} />
         <Route path="/login" component={Login} />
         <ProtectedRoute path="/user" component={User} />
 

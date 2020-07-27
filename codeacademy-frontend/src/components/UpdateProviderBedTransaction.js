@@ -22,16 +22,21 @@ class UpdateProviderBedTransaction extends Component {
     //function to call fetch to store bed transaction
     updateBedTransaction = (serviceOfferedToken, avaliableBedsToken) => {
 
+        //set variable to provider id to be used to make bed transaction
         let providerIdToken = "";
-
+        // endpoint to retrieve provider id
         let fetchServiceDoc = "http://localhost:3000/servicesoffered/" + serviceOfferedToken;
 
+        //call endpoint 
         fetch(fetchServiceDoc)
             .then((response) => response.json())
             .then((theData) => {
-                console.log(theData.ProviderID[0]);  
+                //test for services offered data
+                //console.log(theData.ProviderID[0]);  
+                //set services offered data
                 providerIdToken = theData.ProviderID[0];
 
+                //pull user id from token
                 let token = this.props.token;
                 //grab the middle part of the token.
                 let authData = token.split('.')[1];
@@ -49,7 +54,7 @@ class UpdateProviderBedTransaction extends Component {
                     UpdatingServiceID: serviceOfferedToken,
                 }
         
-                console.log(credentialsBedTransaction);
+                //console.log(credentialsBedTransaction);
                 //call endpoint
                 fetch("http://localhost:3000/bedtransactions", {
                     method: 'post',
@@ -115,10 +120,10 @@ class UpdateProviderBedTransaction extends Component {
             credentials.WarmingStation = e.target.warmingstation.value;
         }
 
-        console.log(credentials);
-        console.log(typeof credentials);
+        // console.log(credentials);
+        // console.log(typeof credentials);
 
-        //if**************************************************
+        //if we have change inf avaliable beds call bed transaction and pass in serviceoffered id and avaliablebeds
         if (e.target.avaliablebeds.value !== null) {
             this.updateBedTransaction(e.target.serviceofferedid.value, e.target.avaliablebeds.value);
         }

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { GoogleMap, withGoogleMap, withScriptjs, Marker, InfoWindow } from 'react-google-maps';
+import { GoogleMap, withGoogleMap, withScriptjs, Marker, MarkerWithLabel } from 'react-google-maps';
 import Geocode from "react-geocode";
 
 
@@ -8,15 +8,16 @@ const TheMap = (props) => {
 
     let providerInfo = props.providerServiceInfo
 
+    
     const [testData, setTestData] = useState({
         home: "City Hall",
         homelat: null,
         homelng: null,
-        providers: []
+        providers: [],
+        markers: [],
     });
-
     setTestData.providers = providerInfo;
-    console.log(testData.providers);
+    //console.log(testData.providers);
 
 
     //unable to use address to lat/lng conversion without key
@@ -77,17 +78,17 @@ const TheMap = (props) => {
 
         console.log(providerInfo);
         //set the markers array to store each marker
-        let markers = [];
+        // let markers = [];
         // markers[0] = <Marker key={testData.house} position={{ lat: 35.2069203, lng: -101.8311764 }} />;
         // markers[1] = <Marker key={testData.providers} position={{lat:35.20577686551703 , lng: -101.83548331260683}} />;
         for (let i = 0; i < providerInfo.length; i++) {
             console.log(providerInfo[i].lat);
             console.log(providerInfo[i].lng);
-            markers[i] = <Marker lable={i} key={providerInfo[i].OranaziationName} position={{ lat: providerInfo[i].lat, lng: providerInfo[i].lng }} />;
+            testData.markers[i] = <Marker title={providerInfo[i].OranaziationName} key={providerInfo[i].OranaziationName} position={{ lat: providerInfo[i].lat, lng: providerInfo[i].lng }} />;
         }
         //testing the markers are getting updated
-        console.log(markers)
-        return markers;
+        console.log(testData.markers)
+        return testData.markers;
     }
 
     const mapInfo = (<GoogleMap defaultZoom={13}
