@@ -18,36 +18,16 @@ const TheMap = (props) => {
 
     setTestData.providers = providerInfo;
     console.log(testData.providers);
-    // let location = getLocation();
-    // console.log(location);
 
-    const onMarkerClick = (props, marker, e) =>
-        this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true
-        });
-
-    const onClose = (props) => {
-        if (this.state.showingInfoWindow) {
-            this.setState({
-                showingInfoWindow: false,
-                activeMarker: null
-            });
-        }
-    };
-
-
+   
     //unable to use address to lat/lng conversion without key
-    Geocode.setApiKey("AIzaSyA3TCByfeoNvJ6xnJA7E1foMAeX5M3RhTA");
+    Geocode.setApiKey();
 
-    let TestMarker = [];
-
+  
     const theGeocode = () => {
         for (let i = 0; i < providerInfo.length; i++) {
 
-            console.log("inside for loop!!!!!!!!!!!!!!!!!!!!!!");
-            console.log(props);
+            //console.log(props);
             console.log(props.providerServiceInfo[i].OrganizationName);
             //console.log(providerInfo);
             //console.log(`Provider Info inside loop for address = ${providerInfo.Address}`);
@@ -57,7 +37,7 @@ const TheMap = (props) => {
             let eachAddress = props.providerServiceInfo[i].Address + " " + props.providerServiceInfo[i].City + "," + props.providerServiceInfo[i].State;
             console.log(eachAddress);
 
-            Geocode.fromAddress("601 S Buchanan St, Amarillo, Texas").then(
+            Geocode.fromAddress(eachAddress).then(
                 response => {
                     const { lat, lng } = response.results[0].geometry.location;
                     //console.log(" here is the possible conversion****************" + lat, lng);
@@ -69,9 +49,11 @@ const TheMap = (props) => {
                         //providers: testData.providers.push(providerInfo[i])
                     }
                     // setTestData(data);
-                    console.log(providerInfo);
+                    //console.log(providerInfo);
                     console.log(data)
-                    TestMarker[i] = <Marker key={testData.house} position={{ lat: testData.homelat, lng: testData.homelng }} />
+                    providerInfo[i].lat = data.homelat;
+                    providerInfo[i].lng = data.homelng;
+                    console.log(providerInfo);
                         
                 },
                 error => {
@@ -88,16 +70,32 @@ const TheMap = (props) => {
     },[]);
 
 
-    let mapInfo = (<GoogleMap defaultZoom={15}
-        defaultCenter={{ lat: 35.207008, lng: -101.832008 }}>
+    const generateMarker = () => {
 
-        <Marker key={testData.house} position={{ lat: 35.2069203, lng: -101.8311764 }} />
-        <Marker key={testData.providers} position={{lat:35.20577686551703 , lng: -101.83548331260683}} />
-        
-        
+        console.log(providerInfo);
+
+        let markers = [];
+        // markers[0] = <Marker key={testData.house} position={{ lat: 35.2069203, lng: -101.8311764 }} />;
+        // markers[1] = <Marker key={testData.providers} position={{lat:35.20577686551703 , lng: -101.83548331260683}} />;
+        for(let i = 0; i < providerInfo.length; i++){
+            console.log(providerInfo[i].lat);
+            console.log(providerInfo[i].lng);
+            markers[i] = <Marker key={providerInfo[i].OranaziationName} position={{ lat: providerInfo[i].lat, lng: providerInfo[i].lng }} />;
+        }
+
+        console.log(markers)
+
+        return  markers;
+    }
+
+    const mapInfo = (<GoogleMap defaultZoom={13}
+        defaultCenter={{ lat: 35.18727767598898, lng: -101.84875488281251 }}>
+
+        {console.log(providerInfo)}
+        {generateMarker()}
+
 
         
-
     </GoogleMap>);
 
     return (
@@ -115,7 +113,7 @@ const Map = (props) => {
 
     return (
         <div style={{ width: '55vw', height: '75vh' }}>
-            <MapWrapped googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyA3TCByfeoNvJ6xnJA7E1foMAeX5M3RhTA'}
+            <MapWrapped googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key='}
                 loadingElement={<div style={{ height: "100%" }} />}
                 containerElement={<div style={{ height: "100%" }} />}
                 mapElement={<div style={{ height: "100%" }} />}

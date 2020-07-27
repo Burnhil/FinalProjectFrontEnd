@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Table, TableHead, TableRow, TableCell, TableBody, Container } from '@material-ui/core';
+import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 //create view all Bed Transactions
@@ -33,7 +33,7 @@ const GetAllBedTransactions = (props) => {
             
             <Table>
                 <TableHead>
-                    <TableCell>Current Bed Count</TableCell>
+                    <TableCell>Previous Bed Count</TableCell>
                     <TableCell>Updated Bed Count</TableCell>
                     <TableCell>Updating Provider Id</TableCell>
                     <TableCell>Updating Service Id</TableCell>
@@ -48,7 +48,7 @@ const GetAllBedTransactions = (props) => {
                             <TableCell>{row["UpdatingProviderID"]}</TableCell>
                             <TableCell>{row["UpdatingServiceID"]}</TableCell>
                             <TableCell>{row["UpdatingUserID"]}</TableCell>
-                            <TableCell>{row["changedDateTime"]}</TableCell>
+                            <TableCell>{row["ChangedDateTime"]}</TableCell>
                         </TableRow>
                     ))}
 

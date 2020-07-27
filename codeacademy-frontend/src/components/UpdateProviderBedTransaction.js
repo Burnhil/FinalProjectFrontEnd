@@ -20,42 +20,55 @@ class UpdateProviderBedTransaction extends Component {
     }
 
     //function to call fetch to store bed transaction
-    updateBedTransaction = () => {
+    updateBedTransaction = (serviceOfferedToken, avaliableBedsToken) => {
 
-        let token = this.props.token;
-        //grab the middle part of the token.
-        let authData = token.split('.')[1];
-        // JWTs are base64 encoded, so decode it.
-        let decodedAuthData = atob(authData);
-        // the decoded data should be a JSON object, so parse it as such.
-        let decodedAuthDataJSON = JSON.parse(decodedAuthData);
-        //console.log(decodedAuthDataJSON);
+        let providerIdToken = "";
 
-        //create json to send to bedtransaction
-        let credentialsBedTransaction = {
-            UpdatedBedCount: this.state.theAvaliableBeds,
-            UpdatingUserID: decodedAuthDataJSON._Id,
-            UpdatingProviderID: this.state.theProviderDocId,
-            UpdatingServiceID: this.state.theUpdatedServiceDoc._id,
-        }
+        let fetchServiceDoc = "http://localhost:3000/servicesoffered/" + serviceOfferedToken;
 
-        //console.log(credentialsBedTransaction);
-        //call endpoint
-        fetch("http://localhost:3000/bedtransactions", {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
-            },
-            body: JSON.stringify(credentialsBedTransaction),
-        })
-            .then(response => response.json())
-            .then(bedTransaction => {
-                //testing to console for success
-                //console.log(bedTransaction);
+        fetch(fetchServiceDoc)
+            .then((response) => response.json())
+            .then((theData) => {
+                console.log(theData.ProviderID[0]);  
+                providerIdToken = theData.ProviderID[0];
 
+                let token = this.props.token;
+                //grab the middle part of the token.
+                let authData = token.split('.')[1];
+                // JWTs are base64 encoded, so decode it.
+                let decodedAuthData = atob(authData);
+                // the decoded data should be a JSON object, so parse it as such.
+                let decodedAuthDataJSON = JSON.parse(decodedAuthData);
+                //console.log(decodedAuthDataJSON);
+        
+                //create json to send to bedtransaction
+                let credentialsBedTransaction = {
+                    UpdatedBedCount: avaliableBedsToken,
+                    UpdatingUserID: decodedAuthDataJSON._Id,
+                    UpdatingProviderID: theData.ProviderID[0],
+                    UpdatingServiceID: serviceOfferedToken,
+                }
+        
+                console.log(credentialsBedTransaction);
+                //call endpoint
+                fetch("http://localhost:3000/bedtransactions", {
+                    method: 'post',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                    },
+                    body: JSON.stringify(credentialsBedTransaction),
+                })
+                    .then(response => response.json())
+                    .then(bedTransaction => {
+                        //testing to console for success
+                        //console.log(bedTransaction);
+        
+                    });
             });
+
+      
     }
 
     // function to update services for provider
@@ -102,9 +115,13 @@ class UpdateProviderBedTransaction extends Component {
             credentials.WarmingStation = e.target.warmingstation.value;
         }
 
-        //console.log(credentials)
+        console.log(credentials);
+        console.log(typeof credentials);
 
-        
+        //if**************************************************
+        if (e.target.avaliablebeds.value !== null) {
+            this.updateBedTransaction(e.target.serviceofferedid.value, e.target.avaliablebeds.value);
+        }
 
         //pull service offered id to be updated/changed
         let servicesOfferedIdToChange = e.target.serviceofferedid.value;
@@ -135,10 +152,10 @@ class UpdateProviderBedTransaction extends Component {
             .then(response => response.json())
             .then(theDoc => {
 
+                console.log(theDoc);
                 //set the services changed doc into state for display/ also stored provider id to be used in bed transaction 
                 this.setState({
                     theUpdatedServiceDoc: theDoc.updatedServicesOfferedDoc,
-                    theProviderDocId: theDoc.updatedServicesOfferedDoc.ProviderID[0],
                 },
                     () => {
                         console.log("The state's updated service doc " + this.state.theUpdatedServiceDoc);
@@ -161,10 +178,6 @@ class UpdateProviderBedTransaction extends Component {
         // console.log(this.state.theUpdatedServiceDoc._id);
 
 
-        //call update bed transaction only if we have bed count to update pass in new avaliable beds/providerid/serviceofferedid
-        if (this.state.theAvaliableBeds >= 0) {
-            this.updateBedTransaction();
-        }
 
         //set up jsx to be displayed 
         let theUpdateServicesOfferedInfo = []; 

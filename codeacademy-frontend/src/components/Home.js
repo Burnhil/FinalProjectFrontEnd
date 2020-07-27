@@ -4,7 +4,7 @@ import { Paper, Container } from '@material-ui/core';
 
 const Home = (props) => {
 
-    let missionStatement = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Convallis posuere morbi leo urna molestie at elementum. Integer vitae justo eget magna fermentum. Tempor nec feugiat nisl pretium fusce id velit ut. Velit euismod in pellentesque massa placerat duis ultricies. Mauris pharetra et ultrices neque ornare. In hendrerit gravida rutrum quisque non tellus orci ac auctor. Blandit libero volutpat sed cras ornare. Non odio euismod lacinia at quis risus sed vulputate odio.";
+    let missionStatement = "Care Amarillo is an operating system that is accessible to a diverse group of people.  CA will be available 24 hours a day, 7 days a week.  Used by human services and emergency shelters this system will make lives better in our community.  It is usable from web-based and mobile-based interfaces to make finding resources in our city easier for everyone.  Information from the different providers will be current and up to date with types of services offered, volunteering information as well as contact and website information.  Emergency shelters provide emergency short-term housing and warming needs.  Total number of beds offered by these providers will be updated as beds become available.   "
 
     return <div>
         
