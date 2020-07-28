@@ -1,3 +1,5 @@
+//create store for reduce
+
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import state from './state';

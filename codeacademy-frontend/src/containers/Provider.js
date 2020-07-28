@@ -3,6 +3,7 @@ import Provider from '../components/Provider.js';
 
 import { setProviderInfo, setServiceInfo, setProviderServiceInfo } from '../redux/actions';
 
+//let Provider see state variables
 const mapStateToProps = (state) => {
     return {
         providerInfo: state.providerInfo,
@@ -11,6 +12,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+// let Provider change variables with action
 const mapDispatchToProps = (dispatch) =>{
     return {
         setProviderInfo: (provider) => dispatch(setProviderInfo(provider)),

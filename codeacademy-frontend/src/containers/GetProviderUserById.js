@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-//letting  GetProviderUserById see action
+//letting  GetProviderUserById set action
 const mapDispatchToProps = (dispatch) => {
     return {
         theGetProviderUserById: (userInfo, theToken) => dispatch(theGetProviderUserById(userInfo, theToken)),

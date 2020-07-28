@@ -89,12 +89,13 @@ export const theGetAllProviderUserInfo = (eventObj, theToken) => {
     //console.log(token);
     eventObj.preventDefault();
 
+    //call fetch to get providers and user information
     return (dispatch) => {
         //use fetch to get provider user information
         fetch("http://localhost:3000/providerusers", {
             method: 'get',
             headers: {
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                'Authorization': "Bearer " + token, 
             }
         })
             .then(response => response.json())
@@ -130,7 +131,7 @@ export const theGetBedtransactionById = (eventObj, theToken) => {
         fetch(bedtractionByIdEndpoint, {
             method: 'get',
             headers: {
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                'Authorization': "Bearer " + token, 
             }
         })
             .then(response => response.json())
@@ -160,7 +161,7 @@ export const theGetBedtransaction = (eventObj, theToken) => {
         fetch("http://localhost:3000/bedtransactions", {
             method: 'get',
             headers: {
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                'Authorization': "Bearer " + token,
             }
         })
             .then(response => response.json())
@@ -197,7 +198,7 @@ export const theDeleteServiceOffered = (eventObj, theToken) => {
         fetch(deleteServiceOfferedEndpoint, {
             method: 'delete',
             headers: {
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                'Authorization': "Bearer " + token, 
             },
         })
             .then(response => response.json())
@@ -278,7 +279,7 @@ export const theUpdateServicesOffered = (eventObj, theToken) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                'Authorization': "Bearer " + token, 
             },
             body: JSON.stringify(credentials),
         })
@@ -335,7 +336,7 @@ export const theAddServicesOffered = (eventObj, theToken) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                'Authorization': "Bearer " + token, 
             },
             body: JSON.stringify(credentials),
         })
@@ -384,7 +385,7 @@ export const theLinkProviderServices = (eventObj, theToken) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                'Authorization': "Bearer " + token, 
             },
             body: JSON.stringify(credentials),
         })
@@ -409,8 +410,8 @@ export const theDeleteProviderInfo = (eventObj, theToken) => {
     //console.log(token);
     eventObj.preventDefault();
 
+    //set provider id to delete to add to url endpoint
     let providerIdToDelete = eventObj.target.providerid.value;
-
     let deleteProviderEndpoint = "http://localhost:3000/providers/" + providerIdToDelete;
 
     //create fetch to call delete user endpoint in database
@@ -449,6 +450,7 @@ export const theUpdateProviderInfo = (eventObj, theToken) => {
 
     }
 
+    //check each field to see if it needs updated add to credentials if true
     if (eventObj.target.providerid.value !== 'null') {
         credentials.OrganizationName = eventObj.target.organizationname.value;
     }
@@ -474,7 +476,7 @@ export const theUpdateProviderInfo = (eventObj, theToken) => {
         credentials.County = eventObj.target.county.value;
     }
 
-    console.log(credentials)
+    //console.log(credentials)
 
     //set userid to add to url
     let providerIdToChange = eventObj.target.providerid.value;
@@ -616,10 +618,12 @@ export const theResetPassword = (eventObj, theToken) => {
     console.log(token);
     eventObj.preventDefault();
 
+    //create credentials to pass to endpoint
     let credentials = {
         UserPassword: eventObj.target.newpassword.value,
     }
 
+    //add userid to endpoint for fetch
     let theUser = eventObj.target.userid.value;
     let updateEndpointURL = "http://localhost:3000/users/resetpassword/" + theUser;
 
@@ -638,10 +642,10 @@ export const theResetPassword = (eventObj, theToken) => {
         })
             .then(response => response.json())
             .then(resetingUserPassword => {
-                console.log(resetingUserPassword);
-                console.log(typeof resetingUserPassword.resetPasswordDoc);
+                //console.log(resetingUserPassword);
+                //console.log(typeof resetingUserPassword.resetPasswordDoc);
 
-
+                //store reset password info
                 const action = {
                     type: "SET_RESETPASSWORD",
                     value: resetingUserPassword,
@@ -662,6 +666,7 @@ export const theLinkUserProvider = (eventObj, theToken) => {
     //console.log(token);
     eventObj.preventDefault();
 
+    //grab userid and providerid to be used in credentials and url
     let theUser = eventObj.target.userid.value;
     let theProvider = eventObj.target.providerid.value;
 
@@ -1019,7 +1024,7 @@ export const setToken = (eventObj) => {
     }
 }
 
-//function to remove token from store/state
+//function to remove token from store/state ***needs added to logout
 export const unsetToken = (tokenToRemove) => {
     return {
         type: "UNSET_TOKEN",
@@ -1031,6 +1036,7 @@ export const unsetToken = (tokenToRemove) => {
 //funtion to pull provider to store in state
 export const setProviderInfo = () => {
 
+    //call endpoint for all provider information
     return (dispatch) => {
         fetch("http://localhost:3000/providers")
             .then((response) => response.json())
@@ -1048,6 +1054,7 @@ export const setProviderInfo = () => {
 }
 
 export const setServiceInfo = () => {
+    //call endpoint for all services offered information
     return (dispatch) => {
         fetch("http://localhost:3000/servicesoffered")
             .then((response) => response.json())
@@ -1067,7 +1074,7 @@ export const setServiceInfo = () => {
 }
 
 export const setProviderServiceInfo = () => {
-    
+    //combine provider and services offered information into one object by call fetch to both endpoints
     return (dispatch) => {
         fetch("http://localhost:3000/providers")
             .then((response) => response.json())

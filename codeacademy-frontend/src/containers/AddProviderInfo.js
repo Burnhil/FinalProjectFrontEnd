@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-//letting addServicesOffered field see action
+//letting addproviderinfo field see action
 const mapDispatchToProps = (dispatch) => {
     return {
         theAddProviderInfo: (userInfo, theToken) => dispatch(theAddProviderInfo(userInfo, theToken)),

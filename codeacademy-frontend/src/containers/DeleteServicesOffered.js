@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-//letting delete Services Offered action
+//letting delete Services Offered access action
 const mapDispatchToProps = (dispatch) => {
     return {
         theDeleteServiceOffered: (userInfo, theToken) => dispatch(theDeleteServiceOffered(userInfo, theToken)),

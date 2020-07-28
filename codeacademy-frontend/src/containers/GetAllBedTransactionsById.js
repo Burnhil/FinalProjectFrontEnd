@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import GetAllBedTransactionsById from '../components/GetAllBedTransactionsById.js';
 import { theGetBedtransactionById } from '../redux/actions.js'
 
-//letting getBedTransactionById see state items
+//letting getAllBedTransactionById see state items
 const mapStateToProps = (state) => {
     return {
         token: state.token,
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-//letting  getBedTransactionById see action
+//letting  getAllBedTransactionById see action
 const mapDispatchToProps = (dispatch) => {
     return {
         theGetBedtransactionById: (userInfo, theToken) => dispatch(theGetBedtransactionById(userInfo, theToken)),

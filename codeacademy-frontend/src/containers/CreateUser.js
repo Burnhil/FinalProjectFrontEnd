@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import CreateUser from '../components/CreateUser.js';
 import { theCreateUser } from '../redux/actions.js'
 
+// let CreateUser see state variables
 const mapStateToProps = (state) => {
     return {
         token: state.token,
@@ -10,6 +11,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+// let CreateUser see theCreatUser action
 const mapDispatchToProps = (dispatch) => {
     return {
         theCreateUser: (userInfo, theToken) => dispatch(theCreateUser(userInfo, theToken)),

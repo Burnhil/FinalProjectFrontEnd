@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import DisableUserAccount from '../components/DisableUserAccount.js';
 import { theDisableUserAccount } from '../redux/actions.js'
 
-//letting UserResetPassword access see state items
+//letting disable user account access state variables
 const mapStateToProps = (state) => {
     return {
         token: state.token,

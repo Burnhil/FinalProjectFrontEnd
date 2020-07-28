@@ -300,6 +300,7 @@ const providerInfo = (state = [], action) => {
     
 }
 
+//set switch for serviceInfo
 const serviceInfo = (state = [], action) => {
     switch(action.type) {
         case "SET_SERVICEINFO":
@@ -310,6 +311,7 @@ const serviceInfo = (state = [], action) => {
     
 }
 
+//set switch for providerServiceInfo
 const providerServiceInfo = (state = [], action) => {
     switch(action.type) {
         case "SET_SERVICE_PROVIDER_INFO":
@@ -320,6 +322,7 @@ const providerServiceInfo = (state = [], action) => {
     
 }
 
+//export each reducer
 export default combineReducers({ providerInfo, serviceInfo, providerServiceInfo, token, allUserInfo, 
     userById, createUserInfo, updateUserInfo, deleteUserInfo, linkUserProvider, resetPassword, disableUserAccount, addProviderInfo,
     updateProviderInfo, deleteProviderInfo, linkProviderService, addServicesOffered, updateServicesOfferedInfo, deleteServicesOffered, 

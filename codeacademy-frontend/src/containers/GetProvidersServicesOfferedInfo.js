@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-//letting change provider services offered info
+//letting getproviderservicesofferedinfo set action
 const mapDispatchToProps = (dispatch) => {
     return {
         setProviderServiceInfo2: (userInfo, theToken) => dispatch(setProviderServiceInfo2(userInfo, theToken)),
