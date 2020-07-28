@@ -17,14 +17,13 @@ import GetAllBedTransactions from '../containers/GetAllBedTransactions.js';
 import GetAllBedTransactionsById from '../containers/GetAllBedTransactionsById.js';
 import GetAllProviderUser from '../containers/GetAllProviderUser.js';
 import GetProviderUserById from '../containers/GetProviderUserById.js';
-
 import UpdateProviderBedTransaction from '../containers/UpdateProviderBedTransaction.js';
 import GetProvidersServicesOfferedInfo from '../containers/GetProvidersServicesOfferedInfo.js';
 
-
+//create user panel for admin or provider
 class User extends Component {
 
-
+    //function to seperate userType from token
     parseJWT = (token) => {
         //grab the middle part of the token.
         let authData = token.split('.')[1];
@@ -40,16 +39,19 @@ class User extends Component {
     render() {
         //console.log(`this is inside users with token = ${this.props.token}`)
         //console.log(this.props.token);
+        //set userType by calling parseJWT
         let authorizedUser = this.parseJWT(this.props.token);
         //console.log(authorizedUser);
         //console.log(authorizedUser.UserType)
+        //set user as admin or provider
         let userRights = authorizedUser.UserType;
-        console.log(userRights);
+        //console.log(userRights);
 
-
+        //create jsx to display according to userType
         let userRightJSX = [];
 
-        // //verify userType to show user only components to modify
+        // verify userType to show user only components to modify
+        //display Admin components
         if (authorizedUser.UserType === "Admin") {
             userRightJSX = <div>
                 <CreateUser />
@@ -79,7 +81,7 @@ class User extends Component {
                 <GetProviderUserById />
                 
             </div>
-        } else {
+        } else { //display Provider components
             userRightJSX = <div className="userAccess">
                 <AddServicesOffered />
                 <LinkProviderService />

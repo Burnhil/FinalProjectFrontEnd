@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Container, ListItemText, ListItem } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-//add provider info
+//update services offered
 const UpdateServicesOffered = (props) => {
 
     // testing information to console
@@ -46,7 +46,7 @@ const UpdateServicesOffered = (props) => {
             </AccordionSummary>
             <AccordionDetails>
 
-                {/**create text fields and buttons needed */}
+                {/**create text fields and buttons needed to update services offered*/}
                 <form onSubmit={(e) => {props.theUpdateServicesOffered(e, props.token)}} >
                     <h5>Service Offered Id is required insert null for any other fields not being changed</h5>
                     <Grid container direction='row'>
@@ -65,7 +65,7 @@ const UpdateServicesOffered = (props) => {
 
 
             </AccordionDetails>
-            {/**display updated provider information */}
+            {/**display updated services offered information */}
             {theUpdateServicesOfferedInfo}
         </Accordion>
     </div>;

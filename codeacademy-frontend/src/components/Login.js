@@ -1,19 +1,22 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 
-
+//create login for Admin and Providers
 const Login = (props) => {
 
+    //create array to store if user is logged in information
     let userLoggedIn = [];
 
+    // store log in out button
     let logInOut = null;
 
+    //if token is avaliable check user for admin or provider
     if (props.token != null) {
         //seperate the token to pull out user info for use
         let userInfo = props.token;
-        console.log(userInfo);
+        //console.log(userInfo);
         let userSplit = userInfo.split('.')[1];
-        console.log(userSplit)
+        //console.log(userSplit)
         let decodeUser = atob(userSplit);
         let finalDecodeUser = JSON.parse(decodeUser);
         console.log(finalDecodeUser);

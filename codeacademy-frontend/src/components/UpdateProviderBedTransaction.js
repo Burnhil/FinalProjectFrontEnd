@@ -61,13 +61,13 @@ class UpdateProviderBedTransaction extends Component {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
-                        'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                        'Authorization': "Bearer " + token, 
                     },
                     body: JSON.stringify(credentialsBedTransaction),
                 })
                     .then(response => response.json())
                     .then(bedTransaction => {
-                        //testing to console for success
+                        //testing to console for success of bed transaction
                         //console.log(bedTransaction);
         
                     });
@@ -123,8 +123,9 @@ class UpdateProviderBedTransaction extends Component {
         // console.log(credentials);
         // console.log(typeof credentials);
 
-        //if we have change inf avaliable beds call bed transaction and pass in serviceoffered id and avaliablebeds
+        //if we have change information for avaliable beds call bed transaction and pass in serviceoffered id and avaliablebeds
         if (e.target.avaliablebeds.value !== null) {
+            //this funtion adds a bed transaction to database
             this.updateBedTransaction(e.target.serviceofferedid.value, e.target.avaliablebeds.value);
         }
 
@@ -133,7 +134,7 @@ class UpdateProviderBedTransaction extends Component {
         //set endpoint to be called for fetch
         let updateEndpointURL = "http://localhost:3000/servicesoffered/" + servicesOfferedIdToChange;
 
-        //clear user fields
+        //clear user input fields
         e.target.avaliablebeds.value = "";
         e.target.totalbeds.value = "";
         e.target.volunteeropportunities.value = "";
@@ -150,7 +151,7 @@ class UpdateProviderBedTransaction extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': "Bearer " + token, // this is how you pass the JWT to an endpoint needing authoriztion.
+                'Authorization': "Bearer " + token,
             },
             body: JSON.stringify(credentials),
         })
@@ -226,7 +227,7 @@ class UpdateProviderBedTransaction extends Component {
                 </AccordionSummary>
                 <AccordionDetails>
 
-                    {/**create text fields and buttons needed */}
+                    {/**create text fields and buttons needed to update services offered*/}
                     <form onSubmit={this.updateProviderBedInfo} >
 
                         <h5>Service Offered Id is required insert null for any other fields not being changed</h5>

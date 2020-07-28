@@ -42,10 +42,10 @@ const UserDB = (props) => {
                     <TableCell>Email</TableCell>
                     <TableCell>User Name</TableCell>
                     <TableCell>Last Login</TableCell>
-                    <TableCell>Changed By</TableCell>
+                    {/* <TableCell>Changed By</TableCell>
                     <TableCell>Changed Date</TableCell>
                     <TableCell>User Type</TableCell>
-                    <TableCell>Provider Id</TableCell>
+                    <TableCell>Provider Id</TableCell> */}
                     
                 </TableHead>
                 <TableBody>
@@ -59,10 +59,10 @@ const UserDB = (props) => {
                             <TableCell>{row["Email"]}</TableCell>
                             <TableCell>{row["UserId"]}</TableCell>
                             <TableCell>{row["LastLogin"]}</TableCell>
-                            <TableCell>{row["ChangedBy"]}</TableCell>
+                            {/* <TableCell>{row["ChangedBy"]}</TableCell>
                             <TableCell>{row["ChangedDateTime"]}</TableCell>
                             <TableCell>{row["UserType"]}</TableCell>
-                            <TableCell>{row["ProviderID"]}</TableCell>
+                            <TableCell>{row["ProviderID"]}</TableCell> */}
                            
                         </TableRow>
                     ))}

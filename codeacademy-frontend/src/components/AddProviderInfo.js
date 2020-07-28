@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const AddProviderInfo = (props) => {
 
     // console.log(props.token);
-    //console.log(props.addProviderInfo);
+    // console.log(props.addProviderInfo);
     // console.log(typeof props.addProviderInfo);
  
     //create jsx for adding provider information
@@ -43,7 +43,7 @@ const AddProviderInfo = (props) => {
             </AccordionSummary>
             <AccordionDetails>
 
-                {/**create text fields and buttons needed */}
+                {/**create text fields and buttons needed to add provider*/}
                 <form onSubmit={(e) => props.theAddProviderInfo(e, props.token)} >
 
                     <Grid container direction='row'>

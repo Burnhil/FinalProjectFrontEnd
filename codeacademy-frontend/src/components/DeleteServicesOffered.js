@@ -42,7 +42,7 @@ const DeleteServicesOffered = (props) => {
                 </div>
             </AccordionSummary>
             <AccordionDetails>
-                {/**create form data that is needed for new user */}
+                {/**create form data that is needed delete service offered*/}
                 <form onSubmit={(e) => props.theDeleteServiceOffered(e, props.token)} >
                     <Grid container direction='row'>
                         <Grid item><input type="text" placeholder="Services Offered Id" name="servicesofferedid" required /></Grid>

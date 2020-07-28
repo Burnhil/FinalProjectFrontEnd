@@ -8,6 +8,7 @@ const UserResetPassword = (props) => {
     console.log(props.token);
     console.log(props.resetPassword);
 
+    //create jsx array to store user information
     let theResetPasswordInfo = [];
 
     //check to verify object to create jsx for reset password user information
@@ -48,7 +49,7 @@ const UserResetPassword = (props) => {
             </AccordionSummary>
             <AccordionDetails>
                 
-                {/**create text fields and buttons needed */}
+                {/**create text fields and buttons needed to get userid and new password*/}
                 <form onSubmit={(e) => props.theResetPassword(e, props.token)} >
                 <h5>Password requirements include minimun length eight characters no longer then sixteen with one uppdercase letter(a-z), one number, and one special character(*@!#%&)</h5>
                     <Grid container direction='row'>

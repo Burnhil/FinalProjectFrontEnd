@@ -2,14 +2,14 @@ import React from 'react';
 import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-//create view all Provider Users information
+//get all Provider Users information
 const GetAllProviderUser = (props) => {
 
     //testing console output
     // console.log(props.token);
     // console.log(props.getProviderUsersInfo);
     
-    //create accordian with button to view all provider users information
+    //create accordian with button to get all provider users information
     return <div>
         <Accordion>
             <AccordionSummary
@@ -28,7 +28,7 @@ const GetAllProviderUser = (props) => {
                     </Grid>
                 </form>    
             </AccordionDetails>
-            {/**create provider user table */}
+            {/**create provider user table by mapping over getProviderUsersInfo array */}
          <AccordionDetails>
             
             <Table>

@@ -8,10 +8,12 @@ import User from '../containers/User.js'
 import ProtectedRoute from '../containers/ProtectedRoute.js';
 
 
+//build the navigation for page layout when switching pages
 const Navigation = () => {
 
     return <div>
 
+        {/**create toolbar for each page with page links */}
         <AppBar position="static">
             <Toolbar className="toolBar">
                 <Grid className="logo"><img src={require("../pictures/logodemo.jpg")} alt="testing" width="150" height="125"></img></Grid>
@@ -25,6 +27,7 @@ const Navigation = () => {
             </Toolbar>
 
         </AppBar>
+        {/**set the routes for each page and protected routes */}
         <Route exact path="/" component={Home} />
         <Route path="/locations" component={Search} />
         <Route path="/login" component={Login} />

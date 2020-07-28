@@ -3,13 +3,14 @@ import {Grid, Paper } from '@material-ui/core';
 import Provider from '../containers/Provider.js';
 import Map from '../containers/Map.js'
 
+//create search/locations page by adding provider component and map
 const Search = (props) => {
-    return <div className="search">
+    return <div className="searchProviderMap">
         <Grid
             container
             direction="row"
             justify="left"
-            spacing="1"
+            spacing="5"
         >
             <Grid item xs={5}>
                 <Paper >

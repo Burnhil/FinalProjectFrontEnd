@@ -44,7 +44,7 @@ const AddServicesOffered = (props) => {
             </AccordionSummary>
             <AccordionDetails>
 
-                {/**create text fields and buttons needed */}
+                {/**create text fields and buttons needed to add service offered jsx */}
                 <form onSubmit={(e) => props.theAddServicesOffered(e, props.token)} >
 
                     <Grid container direction='row'>

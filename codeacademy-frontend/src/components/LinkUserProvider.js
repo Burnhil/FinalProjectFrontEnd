@@ -9,15 +9,15 @@ const LinkUserProvider = (props) => {
     // console.log(props.linkUserProvider);
     // console.log(typeof props.linkUserProvider);
 
-    //build link provider user info to be displayed
+    //build link user and provider info to be displayed
     let theLinkUserProviderMessage = [];
-    //check to see if link provider user info and create jsx
+    //check to see if user and providers info and create jsx
     if(typeof props.linkUserProvider === 'string'){       
         theLinkUserProviderMessage =<div><h5>{props.linkUserProvider}</h5></div> ;
     }
 
     return <div>
-        {/**build accordian for link user provider information */}
+        {/**build accordian for link user and provider information */}
         <Accordion>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -28,7 +28,7 @@ const LinkUserProvider = (props) => {
                 </div>
             </AccordionSummary>
             <AccordionDetails>
-                {/**create text fields and buttons needed */}
+                {/**create text fields and buttons needed to get user id and provider id from suer */}
                 <form onSubmit={(e) => props.theLinkUserProvider(e, props.token)} >
                     <Grid container direction='row'>
                         <Grid item><input type="text" placeholder="User Id" name="userid" required /></Grid>
@@ -38,7 +38,7 @@ const LinkUserProvider = (props) => {
                 </form>
                 
             </AccordionDetails>
-            {/**display user info */}
+            {/**display user and provider details */}
             {theLinkUserProviderMessage}
         </Accordion>
     </div>;

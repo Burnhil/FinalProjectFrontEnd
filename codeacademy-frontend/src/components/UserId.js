@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, ListItem, ListItemText } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-//create view user by id
+//create  user by id
 const UserId = (props) => {
 
     //testing console output

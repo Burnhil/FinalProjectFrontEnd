@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+// set provider info to be displayed on locations page
 class Provider extends Component {
 
+    //create constructor for variables
     constructor(props) {
         super(props);
 
@@ -14,7 +16,7 @@ class Provider extends Component {
 
     render() {
 
-
+        //if no information avaliable call each funtions to create provider, services offered and combined services offered array in state
         if (this.props.providerServiceInfo.length === 0) {
             this.props.setProviderInfo();
             this.props.setServiceInfo();
@@ -24,6 +26,7 @@ class Provider extends Component {
         //console.log(this.props.serviceInfo);
         //console.log(this.props.providerServiceInfo);
 
+        //if array information available create jsx accordion
         if (this.props.providerServiceInfo !== null) {
             let displayProviders2 = [];
             //console.log(`combined array = ${this.props.providerServiceInfo.length}`)
@@ -58,9 +61,10 @@ class Provider extends Component {
             }
 
 
-
+            //display this information to user
             return (
-                <div>
+                
+                <div className="providerInfoMap">
                     <h4>Current Organizations helping out the community.</h4>
                     <ul>{displayProviders2}</ul>
                 </div>

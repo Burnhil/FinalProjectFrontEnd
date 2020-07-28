@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-//create view all Bed Transactions
+//get providers and services offered
 const GetProvidersServicesOfferedInfo = (props) => {
 
     //testing console output
@@ -41,14 +41,14 @@ const GetProvidersServicesOfferedInfo = (props) => {
                     <TableCell>Phone Number</TableCell>
                     <TableCell>Email</TableCell>
                     <TableCell>WebSite</TableCell>
-                    <TableCell>Criteria for Service</TableCell>
+                    {/* <TableCell>Criteria for Service</TableCell> */}
                     {/* <TableCell>Service Type</TableCell>
                     <TableCell>Service Description</TableCell> */}
-                    <TableCell>Avaliable Beds</TableCell>
+                    {/* <TableCell>Avaliable Beds</TableCell> */}
                     {/* <TableCell>Total Beds</TableCell> */}
-                    <TableCell>Volunteers Opportunities</TableCell>
+                    {/* <TableCell>Volunteers Opportunities</TableCell>
                     <TableCell>Volunteers Needed</TableCell>
-                    <TableCell>Warming Station</TableCell>
+                    <TableCell>Warming Station</TableCell> */}
                     <TableCell>Provider Id</TableCell>
                     <TableCell>Services Offered Id</TableCell>
                     
@@ -64,14 +64,14 @@ const GetProvidersServicesOfferedInfo = (props) => {
                             <TableCell>{row["PhoneNumber"]}</TableCell>
                             <TableCell>{row["Email"]}</TableCell>
                             <TableCell>{row["WebsiteInfo"]}</TableCell>
-                            <TableCell>{row["CriteriaForService"]}</TableCell>
+                            {/* <TableCell>{row["CriteriaForService"]}</TableCell>
                             {/* <TableCell>{row["ServiceType"]}</TableCell>
-                            <TableCell>{row["ServicesDescription"]}</TableCell> */}
-                            <TableCell>{row["AvaliableBeds"]}</TableCell>
+                            {/*<TableCell>{row["ServicesDescription"]}</TableCell> */}
+                            {/* <TableCell>{row["AvaliableBeds"]}</TableCell> */}
                             {/* <TableCell>{row["TotalBeds"]}</TableCell> */}
-                            <TableCell>{row["VolunteerOpportunities"]}</TableCell>
-                            <TableCell>{row["VolunteersNeeded"]}</TableCell>
-                            <TableCell>{row["WarmingStation"]}</TableCell>
+                            {/* <TableCell>{row["VolunteerOpportunities"]}</TableCell> */}
+                            {/* <TableCell>{row["VolunteersNeeded"]}</TableCell> */}
+                            {/* <TableCell>{row["WarmingStation"]}</TableCell> */} 
                             <TableCell>{row["Provider_id"]}</TableCell>
                             <TableCell>{row["TheServicesOfferedId"]}</TableCell>     
                         </TableRow>

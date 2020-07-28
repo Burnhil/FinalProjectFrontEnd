@@ -2,16 +2,16 @@ import React from 'react';
 import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-//link user and provider
+//link providers and services offered
 const LinkProviderService = (props) => {
 
     // console.log(props.token);
     // console.log(props.linkProviderService);
     // console.log(typeof props.linkProviderService);
 
-    //build link provider user info to be displayed
+    //build link provider services offerd info to be displayed
     let theLinkProviderServicesDoc = [];
-    //check to see if link provider user info and create jsx
+    //check to see if link provider sevices offered info and create jsx
     if(typeof props.linkProviderService === 'object'){       
         theLinkProviderServicesDoc =<div><h5>{props.linkProviderService.message}</h5></div> ;
     }
@@ -28,7 +28,7 @@ const LinkProviderService = (props) => {
                 </div>
             </AccordionSummary>
             <AccordionDetails>
-                {/**create text fields and buttons needed */}
+                {/**create text fields and button needed to get provider id and services offered it from user */}
                 <form onSubmit={(e) => props.theLinkProviderServices(e, props.token)} >
                     <Grid container direction='row'>
                         <Grid item><input type="text" placeholder="Provider Id" name="providerid" required /></Grid>
@@ -38,7 +38,7 @@ const LinkProviderService = (props) => {
                 </form>
 
             </AccordionDetails>
-            {/**display user info */}
+            {/**display provider and services information*/}
             {theLinkProviderServicesDoc}
         </Accordion>
     </div>;

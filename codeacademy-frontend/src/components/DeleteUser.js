@@ -8,10 +8,12 @@ const DeleteUser = (props) => {
     //console.log(props.token);
     //console.log(props.deleteUserInfo);
 
+    //array to store deleted user jsx
     let theDeletedUserInfo = [];
 
+    //if deleteuserinfo is avaliable create jsx
     if(typeof props.deleteUserInfo === 'object'){
-     
+        //create jsx for each element
         theDeletedUserInfo  = <div>
             <h4>The following profile has been deleted:</h4>
             <ListItem><ListItemText primary={`First Name: ${props.deleteUserInfo.FirstName}`} /></ListItem>
@@ -38,7 +40,7 @@ const DeleteUser = (props) => {
                 </div>
             </AccordionSummary>
             <AccordionDetails>
-                {/**create form data that is needed for new user */}
+                {/**create form data that is needed for delete user */}
                 <form onSubmit={(e) => props.theDeleteUserInfo(e, props.token)} >
                     <Grid container direction='row'>
                         <Grid item><input type="text" placeholder="User Id" name="userid" required /></Grid>
@@ -47,7 +49,7 @@ const DeleteUser = (props) => {
                 </form>
                 
             </AccordionDetails>
-            {/**display new user info */}
+            {/**display deleted user info */}
             {theDeletedUserInfo}
         </Accordion>
     </div>;

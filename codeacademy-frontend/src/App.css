@@ -42,7 +42,7 @@
 .missionStatement {
   padding: 4%;
   margin-top: 4%;
-  background-color: black;
+  background-image: url("../src/pictures/draftdark.png");
 }
 
 .pictures {
@@ -50,8 +50,9 @@
   width: 100%;
 }
 
-.search {
+.searchProviderMap {
   margin: 2%;
+  margin-top: 20px;
 }
 
 .column {
@@ -70,4 +71,17 @@
 
 .adminHeaders {
   text-size-adjust: bold;
+}
+
+.mapLayout {
+  margin-top: 3%;
+  width: '52vw';
+   height: '79vh';
+
+}
+
+.providerInfoMap {
+  margin-right: 5%;
+  padding-bottom: 5%;
+  
 }

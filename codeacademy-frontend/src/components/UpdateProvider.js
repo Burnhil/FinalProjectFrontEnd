@@ -9,7 +9,7 @@ const UpdateProvider = (props) => {
     // console.log(props.updateProviderInfo);
     // console.log(typeof props.updateProviderInfo);
 
-    //create jsx for adding provider information
+    //create jsx for update provider information
     let theAddProviderInfo = [];
 
     //test if updateProviderInfo has been updated
@@ -31,7 +31,7 @@ const UpdateProvider = (props) => {
             </AccordionSummary>
             <AccordionDetails>
 
-                {/**create text fields and buttons needed */}
+                {/**create text fields and buttons needed to update provider */}
                 <form onSubmit={(e) => props.theUpdateProviderInfo(e, props.token)} >
                     <h5>Provider Id is required insert null for any other fields not being changed</h5>
                     <Grid container direction='row'>

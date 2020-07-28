@@ -806,6 +806,7 @@ export const theUpdateUserInfo = (eventObj, theToken) => {
     eventObj.target.phonenumber.value = "";
     eventObj.target.email.value = "";
     eventObj.target.usertype.value = "";
+    eventObj.target.userid.value = "";
 
 
     //create fetch to call update user endpoint in database

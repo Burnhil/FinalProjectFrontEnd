@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-//create view all Bed Transactions
+//create view all Bed Transactions by id
 const GetAllBedTransactionsById = (props) => {
 
     //testing console output
@@ -29,7 +29,7 @@ const GetAllBedTransactionsById = (props) => {
                     </Grid>
                 </form>
             </AccordionDetails>
-            {/**create bed transaction table */}
+            {/**create bed transaction table by mapping over getAllBedTransactionsById array*/}
             <AccordionDetails>
                 
                     <Table>

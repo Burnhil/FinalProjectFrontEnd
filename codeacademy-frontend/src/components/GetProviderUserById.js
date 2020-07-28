@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-//create view all users for providers by id information
+//get provider and user by id
 const GetProviderUserById = (props) => {
 
     //testing console output
@@ -29,7 +29,7 @@ const GetProviderUserById = (props) => {
                     </Grid>
                 </form>
             </AccordionDetails>
-            {/**create provider user id table */}
+            {/**create provider user id table by mapping over getProviderUsersById array */}
             <AccordionDetails>
                 
                     <Table>

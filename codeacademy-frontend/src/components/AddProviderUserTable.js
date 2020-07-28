@@ -32,7 +32,7 @@ const AddProviderUserTable = (props) => {
                 </div>
             </AccordionSummary>
             <AccordionDetails>
-                {/**create text fields and buttons needed */}
+                {/**create text fields and buttons needed link user provider*/}
                 <form onSubmit={(e) => props.theProviderUserTable(e, props.token)} >
                     <Grid container direction='row'>
                         <Grid item><input type="text" placeholder="Provider Id" name="providerid" required /></Grid>

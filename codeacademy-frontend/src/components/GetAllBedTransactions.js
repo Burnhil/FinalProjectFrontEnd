@@ -28,7 +28,7 @@ const GetAllBedTransactions = (props) => {
                     </Grid>
                 </form>    
             </AccordionDetails>
-            {/**create bed transaction talbe */}
+            {/**create bed transaction table by mapping over getBedTransaction array */}
          <AccordionDetails>
             
             <Table>

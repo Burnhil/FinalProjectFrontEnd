@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, ListItemText, ListItem, Container } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-//reset user password
+//disable user password
 const DisableUserAccount = (props) => {
 
     // console.log(props.token);
@@ -14,6 +14,7 @@ const DisableUserAccount = (props) => {
 
     //check if its an object if so create jsx
     if (typeof props.disableUserAccount === 'object') {
+        //if true disable account
         if (props.disableUserAccount.Disabled === true) {
             console.log("this account is disabled");
             userDisabledInfo = <div><Container>
@@ -25,7 +26,7 @@ const DisableUserAccount = (props) => {
 
             </Container>
             </div>
-        } else {
+        } else { // if false reactivate the account
             console.log("this account is active very active");
             userDisabledInfo = <div><Container>
                 <h4>The following profile has been re-activated:</h4>
@@ -54,7 +55,7 @@ const DisableUserAccount = (props) => {
             </AccordionSummary>
             <AccordionDetails>
 
-                {/**create text fields and buttons needed */}
+                {/**create text fields and buttons needed to disable user */}
                 <form onSubmit={(e) => props.theDisableUserAccount(e, props.token)} >
 
                     <Grid container direction='row'>
