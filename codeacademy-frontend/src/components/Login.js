@@ -10,6 +10,7 @@ const Login = (props) => {
     // store log in out button
     let logInOut = null;
 
+
     //if token is avaliable check user for admin or provider
     if (props.token != null) {
         //seperate the token to pull out user info for use

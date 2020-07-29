@@ -22,7 +22,7 @@ const TheMap = (props) => {
 
 
     //unable to use address to lat/lng conversion without key
-    Geocode.setApiKey();
+    Geocode.setApiKey("api key removed will be needed for google geocode access");
 
     // use geocode to convert longitude to latitude
     const theGeocode = () => {
@@ -120,7 +120,7 @@ const Map = (props) => {
     //display map with height, width, and api key 
     return (
         <div className="mapLayout"  style={{ width: '53vw', height: '80vh' }}>
-            <MapWrapped googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key='}
+            <MapWrapped googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key= (google api key removed will be needed to connect to google services)'}
                 loadingElement={<div style={{ height: "100%" }} />}
                 containerElement={<div style={{ height: "100%" }} />}
                 mapElement={<div style={{ height: "100%" }} />}
